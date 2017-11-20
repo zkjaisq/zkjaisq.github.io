@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>charity</title>
+  <title>JavaScript数据类型 | charity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="charity">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/JavaScript数据类型/index.html">
 <meta property="og:site_name" content="charity">
+<meta property="og:description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。 5.null：表示无值，即此处的值就是「无」的状态">
+<meta property="og:updated_time" content="2017-11-20T11:51:28.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="charity">
+<meta name="twitter:title" content="JavaScript数据类型">
+<meta name="twitter:description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。 5.null：表示无值，即此处的值就是「无」的状态">
   
     <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
   
@@ -59,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-JavaScript数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JavaScript数据类型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/20/JavaScript数据类型/" class="article-date">
   <time datetime="2017-11-20T08:57:39.000Z" itemprop="datePublished">2017-11-20</time>
@@ -74,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/JavaScript数据类型/">JavaScript数据类型</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript数据类型
     </h1>
   
 
@@ -130,108 +132,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/17/JS/" class="article-date">
-  <time datetime="2017-11-17T00:43:35.000Z" itemprop="datePublished">2017-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/JS/">JS</a>
-    </h1>
+    <a href="/2017/11/17/JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#JavaScript学习笔记</p>
-<ul>
-<li>JavaScript程序是一行一行的执行的，每一行就是一个语句。语句是为了执行某项命令而执行的操作，表达式是为了得到返回值的计算式，语句和表达式的区别是，语句是为了执行某项任务而进行的操作，一般不需要返回值，表达式是为了得到一个返回值，一定会返回一个值。</li>
-<li>语句是以 ;结束的，一个分号表示一个语句的结束，一行可以写多个语句。如果一行里面分号前面没有任何内容，JavaScript引擎视为kon空语句。</li>
-<li>表达式不需要以分号结束，一旦在表达式的后面加上分号，会被认为是语句，这样会产生一些没有意义的语句。</li>
-<li>变量是对『值』的引用，使用变量就是引用一个值。每个变量都有一个变量名。如果只是声明变量而没有赋值，那么该变量的值就是undefined，如果变量赋值的时候没有写『var』也是有效的，但是不写『var』的做法，不利于表达意图，而且容易不知不觉的创建全局变量，所以要使用『var』命令声明变量。如果一个变量没有声明就被使用JavaScript会报错，告诉你变量未定义。一个var命令可以声明多个变量，变量之间用逗号隔开。如果一个变量被声明两次，而且两次均被赋值，则第二次的赋值会覆盖第一次的赋值。</li>
-<li>变量提升指的是js文件中的所有的变量的声明语句都会被提升到代码的头部。</li>
-<li>标识符：第一个标识符可以是任意的Unicode字母，以及美元符号『$』和下划线『_』，第二个字符及后面的字符，除了Unicode字母。美元符号和下划线，还可以用字母0-9.</li>
-<li>JS中使用{}将多个相关的语句组合在一起，称为『区块』。JavaScript的区块不构成单独的作用域，也就是说，区块中的变量合区块外的变量，属于同一个作用域。</li>
-<li>if语句（if（））if结构先判断表达式的布尔值，然后执行不同的语句。在if后面加上{}这样方便插入语句。</li>
-<li>多个if…….else连在一起的时候，可以转为使用更方便的switch结构。在switch中根据变量的值，选择执行相应的case，如果所有的case都不符合，则执行最后的default部分。需要注意的事，每个case带吗内部的break语句不能少否则会街下去执行下一个case代码块，而不是跳出switch结构。</li>
-<li>三元运算符『?:』即该运算符需要三个运算子。</li>
-<li>while语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。while循环条件是一个表达式，必须放在（）中，代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。</li>
-<li>for循环：for语句后面的括号中有三个表达式，分别是确定循环的初始值只在循环开始的时候执行一次，循环的条件，递增表达式（完成后续操作，然后返回上一步，再一次检查循环条件，执行第二个语句直到条件不成立）</li>
-<li>do…….while循环：do……while循环先做一次循环，然后判断while的循环条件在做while循环。</li>
-<li>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。break语句用于跳出代码块或循环，continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮的循环。通常和标签一起使用。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cja84syl00000emolqn9eubbm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/17/hello-world/" class="article-date">
-  <time datetime="2017-11-17T00:41:52.190Z" itemprop="datePublished">2017-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cja84syl50002emolm9gc7ywb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
