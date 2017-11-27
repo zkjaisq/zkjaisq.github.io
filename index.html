@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,57 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-JS中的对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/27/JS中的对象/" class="article-date">
+  <time datetime="2017-11-27T03:08:53.000Z" itemprop="datePublished">2017-11-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/JS中的对象/">JS中的对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><ul>
+<li>全局对象，标准上交做global，浏览器上交做window，window属性分为两种<ul>
+<li>一种是ECMAScript规定的:<br>  1.parseInt<br>  2.parseFloat<br>  3.Number()<br>  4.String()<br>  5.Boolean()<br>  6.Object()</li>
+<li>一种是浏览器自己私有的:<br>  1.alert()浏览器弹窗<br>  2.promt()用户填写<br>  3.confirm()确认<br>  4.console开发者<br>  5.document()文档 DOM<br>  6.history   浏览器BOM</li>
+</ul>
+</li>
+</ul>
+<h2 id="简单类型和全局函数的区别"><a href="#简单类型和全局函数的区别" class="headerlink" title="简单类型和全局函数的区别"></a>简单类型和全局函数的区别</h2><ul>
+<li>使用全局函数可以构建一个hash，可以使用API，而简单类型使用API则需要在使用的时候在内存中创建一个临时的对象，这个临时的对象在使用完以后就会被删除掉。</li>
+</ul>
+<h2 id="公用的属性-原型"><a href="#公用的属性-原型" class="headerlink" title="公用的属性(原型)"></a>公用的属性(原型)</h2><ul>
+<li>在JS中一些公用的属性都被放在一个对象中，而需要使用的时候用<strong>proto</strong>来引用。</li>
+<li>protype和<strong>proto</strong>的区别在于prototype你不写代码的时候就有的了，是对API的应用；而<strong>proto</strong>是你写代码的时候对API引用的时候所使用的。一个<strong>proto</strong>对应一个prototype.</li>
+<li>var 对象  = new 函数 ；对象<strong>proto</strong> === 函数 prototype；<br><a href="https://video.jirengu.com/FpdIr-6MZgJd_S0HZCmhGhmmCtwN" target="_blank" rel="noopener">https://video.jirengu.com/FpdIr-6MZgJd_S0HZCmhGhmmCtwN</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjai70gk10002eeolqhk2bv4j" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-JS中的数据" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -143,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjahm4rw90001raolku1h03g0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjai70gk40005eeolwt6oz09x" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -210,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjahm4rw60000raolvj5zdyng" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjai70gk00001eeolm30kgjde" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -283,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjahm4rwb0003raoladkjo6jv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjai70gk30004eeold33a69hp" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -336,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjahm4rwa0002raol2ge8ea7o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjai70gjx0000eeolidfo0wqs" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -381,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjahm4rwc0004raolzm7hw48y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjai70gk20003eeol41y14rko" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -416,9 +467,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/27/JS中的对象/">JS中的对象</a>
+          </li>
         
           <li>
             <a href="/2017/11/26/JS中的数据/">JS中的数据</a>
@@ -436,10 +491,6 @@
             <a href="/2017/11/17/JS/">JS</a>
           </li>
         
-          <li>
-            <a href="/2017/11/17/hello-world/">Hello World</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -453,7 +504,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
