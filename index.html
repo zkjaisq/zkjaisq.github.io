@@ -128,11 +128,10 @@
 <li>查看一个对象的所有的属性，使用Object.keys方法</li>
 <li>for……in循环用来遍历一个队对象的属性和值，它遍历的是对象所有可遍历的属性，会跳过不可遍历的属性，不仅遍历自身的属性，还遍历继承的属性。</li>
 </ul>
-<p>##　类型的转换</p>
-<ul>
-<li>使用tostring转换成字符串时候，null和undefined不能够转换，number和boolean可以转换成字符串，但是object只能转换成[object,Object],使用＋’’的方式都能够转换成字符串，但是object还是[object,Object].使用String()全局函数和使用＋’‘的作用一样的。</li>
+<h2 id="数据类型的转换"><a href="#数据类型的转换" class="headerlink" title="数据类型的转换"></a>数据类型的转换</h2><ul>
+<li>使用tostring转换成字符串时候，null和undefined不能够转换，number和boolean可以转换成字符串，『要注意的是如果数字1.toString()会报错的原因是因为JS引擎会将1.看成一个数字，后面的toString（）就是错误的，要想正确的书写需要(1).toString()或者1..toString()』，但是object只能转换成[object,Object]；使用＋’’的方式都能够转换成字符串，但是object还是[object,Object].使用String()全局函数和使用＋’‘的作用一样的。</li>
 <li>将别的类型的数据转换成boolean，可以使用全局函数String(),也可以使用!!两次取反来进行转换，这种简单方法是老鸟的操作。其中０、NaN、’’、null、undefined这五个值的的boolean都是false。object所有boolean都是true.</li>
-<li>将字符串’1’转换成number1的方法：Number(‘1’)全局函数、parseInt(‘1’,10)、parseFloat(‘1.23’)、－０（减零），＋（取正）。</li>
+<li>将字符串’1’转换成number1的方法：Number(‘1’)全局函数、parseInt(‘1’,10)这种转换方式的话不能够转换小数或者说浮点数，如果是小数的话就只会转换小数前的整数值，如果转换的字符串的值大于后面的进制数，就不会转换，返回转换完的值、parseFloat(‘1.23’)既能够转化为整数，又能够转换位浮点数、－０（减零），＋（取正）。</li>
 </ul>
 <h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><ul>
 <li>如果一个对象没有被引用，它就是一个垃圾，没有任何价值，会被回收，将占用的内存返还给浏览器。</li>
@@ -144,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjagrplt10001cmoldjaftmze" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjahm4rw90001raolku1h03g0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjagrplsy0000cmol0j8bwuq5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjahm4rw60000raolvj5zdyng" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjagrplt40004cmol0920clna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjahm4rwb0003raoladkjo6jv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -337,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjagrplt20002cmolu3jsx9nh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjahm4rwa0002raol2ge8ea7o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjagrplt30003cmoldzgu02gg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjahm4rwc0004raolzm7hw48y" class="article-share-link">Share</a>
       
       
     </footer>
