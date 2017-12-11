@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -140,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/DOM/" data-id="cjb1obh3k0000zroleauqw2so" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/DOM/" data-id="cjb1qu4ft00027molfhvrsd3h" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -172,14 +172,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="函数声明的物种方式"><a href="#函数声明的物种方式" class="headerlink" title="函数声明的物种方式"></a>函数声明的物种方式</h2><p>1.关键字声明一个具名函数<del>~function x (x,y){return x+y}~<br>2.function声明一个匿名函数</del>~var a = function (x,y){return undefined}~但是必须要先声明一个变量把这个函数赋值给这个变量。a.name = “a”<br>3.使用var 声明一个变量 并赋值一个具名函数<del>~ var x = function s (y,t){return undefined}~这时console.log(s)会报错，说s没有定义过。x.name = “s”<br>4.window.Function()来生成，</del>~var f = new function(‘x’,’y’,’return x + y’)<del>f.name = “anonymous”<br>5.箭头函数,</del>~f = (x,y)=&gt;{return x+y}<del>,当只有一个参数的时候，()可以省略不写；当只有一句话的时候return和{}可以同时不写，</del>~sum(x,y)=&gt;x+y~。箭头函数只能是匿名函数，只能用一个变量包含它。</p>
-<h2 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h2><ul>
-<li>f 和f.call的区别是f指的是函数对象，f.call是用eval执行函数体。</li>
-<li>可以执行代码就是一个函数，可以这样对函数定义。</li>
-<li>f()和f.call(undefined,1,2)这两种方法可以调用函数。使用f.cals()第二个开始后面才是传的参数。</li>
-</ul>
-<h2 id="this和arguments"><a href="#this和arguments" class="headerlink" title="this和arguments"></a>this和arguments</h2><ul>
-<li>function z (x,y){return x + y }<br>  f.call(undefined,1,,2)这种调用中第一个参数就是this，后面的参数就是arguments。<br>  arguments是一个伪数组，<strong>proto</strong>没有指向Array.prototype.</li>
+        <h2 id="函数声明的物种方式"><a href="#函数声明的物种方式" class="headerlink" title="函数声明的物种方式"></a>函数声明的物种方式</h2><p>1.关键字声明一个具名函数<figure class="highlight plain"><figcaption><span>x (x,y)&#123;return x+y&#125;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.function声明一个匿名函数```var a = function (x,y)&#123;return undefined&#125;```但是必须要先声明一个变量把这个函数赋值给这个变量。```a.name = &quot;a&quot;</span><br></pre></td></tr></table></figure></p>
+<p>3.使用var 声明一个变量 并赋值一个具名函数<figure class="highlight plain"><figcaption><span>x </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4.window.Function()来生成，```var f = new function(&apos;x&apos;,&apos;y&apos;,&apos;return x + y&apos;)f.name = &quot;anonymous&quot;</span><br></pre></td></tr></table></figure></p>
+<p>5.箭头函数,<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 函数的调用</span><br><span class="line">* 函数的调用的方法有两种，f(),和f.call()。f.call()接受三个参数，第一个是this，从第二个开始才是函数接受的参数。</span><br><span class="line">* f 和f.call的区别是f指的是函数对象，f.call是用eval执行函数体。eval()是将传入的字符串当代码执行。</span><br><span class="line">* 可以执行代码就是一个函数，可以这样对函数定义。</span><br><span class="line">* f()和f.call(undefined,1,2)这两种方法可以调用函数。使用f.cals()第二个开始后面才是传的参数。</span><br><span class="line"></span><br><span class="line">## this和arguments</span><br><span class="line">* ```function z (x,y)&#123;return x + y &#125;</span><br></pre></td></tr></table></figure></p>
+<pre><code>```f.call(undefined,1,,2)```这种调用中第一个参数就是this，后面的参数就是arguments。
+arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
+</code></pre><h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
+<li>函数的作用域就是这个函数内部。</li>
+<li>变量提升：var和function都会被提升到头部。<code>var a =  3;</code>其实是两个语句<code>var a ;a = 3;</code>。</li>
+<li><code>var a = 0; function f1(){alert(a);var a = 2};f1.call()</code>这个中alert(a)的值是udefined，因为其中var = a 会被变量提升到f1的顶部，但是此时的a并没有赋值，只是被声明了，所以执行alert(a)会是undefined。</li>
+<li><code>var a  = 1 ; function f1(){var a = 2; f2.call()};function f2(){console.log(a)}</code>,这个中console.log(a)会打印出1，执行f1函数的时候里面有f2.call(),这是会执行f2,f2里面只有console.log(a),但是f2中没有声明变量a，就会在f2的上一层找，也就是a = 1,所以打印出来的是1.</li>
 </ul>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
 <li>定义就是一个函数使用它范围外的变量，那么这个函数+变量就是一个闭包。</li>
@@ -188,7 +190,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjb1obh3u0004zroljk3vy4hz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjb1qu4fv00057molcba6u24x" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -283,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjb1obh3o0002zrolq1b16xxd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjb1qu4g300087molzg56swxb" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -334,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjb1obh3t0003zrolsynbu9d0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjb1qu4fv00047moldxoep5r7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -426,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjb1obh4l0008zrol2h914vth" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjb1qu4fu00037molvvj1djdt" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -493,7 +495,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjb1obh3v0005zrollzjmvt2k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjb1qu4fs00017molhh5o474y" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -566,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjb1obh3w0007zrol1wszaqyr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjb1qu4g200077mol0ut4qtlm" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -619,7 +621,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjb1obh3n0001zroley0t34sl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjb1qu4fp00007mol6r4wiueh" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -664,7 +666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjb1obh3w0006zrolaj54sxwd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjb1qu4g100067mol02chsuqr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -699,7 +701,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -736,7 +738,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
