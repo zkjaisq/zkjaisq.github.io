@@ -90,13 +90,33 @@
 <li>![Alt  text][./数组.png]</li>
 </ul>
 <h3 id="函数声明的方式"><a href="#函数声明的方式" class="headerlink" title="函数声明的方式"></a>函数声明的方式</h3><p>1.具名函数</p>
-<figure class="highlight plain"><figcaption><span>f(x ,y)&#123;return x +y&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>2.</p>
+<figure class="highlight plain"><figcaption><span>f (x,y)&#123;return x + y&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.匿名函数加var</p>
+<figure class="highlight plain"><figcaption><span>f ; f </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>3.具名函数加var </p>
+<figure class="highlight plain"><figcaption><span>f1 ; f1 </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>4.window.Function +var </p>
+<figure class="highlight plain"><figcaption><span>f ; f </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>5.箭头函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="伪数组"><a href="#伪数组" class="headerlink" title="伪数组"></a>伪数组</h2><ul>
+<li>什么是伪数组：就是有0，1，2，3，4，5…..n，length这些key的对象，但是原型链中没有Array.prototype。目前直到的伪数组有arguments对象，和document.querySelectAll返回的对象。</li>
+</ul>
+<h2 id="数组中的API"><a href="#数组中的API" class="headerlink" title="数组中的API"></a>数组中的API</h2><ul>
+<li>Array.peototype.forEach,后面接一个函数，表示对数组中的每一个元素执行一次所对应的函数。</li>
+<li>Array,prototype.Sort后面接一个函数，函数接受两个参数，分别是数组中的两个值，返回值位两个值的差。如果大于0 则按照从小到大的顺序对数组进行排列，如果小于0的话，则按照从大到小的顺序排列。</li>
+<li>Array.prototype.join用于将一个数组的所有元素连接到一个字符串中，返回值是一个字符串。</li>
+<li>Array.prototype.Concat用于节哀那个两个数组合并为一个数组，返回一个新的数组，但不会更改现有的数组。</li>
+<li>Array.prototype.toString用于将一个数组转为字符串</li>
+<li>Array.prototype.map用于创建一个新数组，七街狗是该数组中的每一个元素都调用一个提供的函数后返回的结果。</li>
+<li>Array.prototype.filter后面接一个函数，用来将一个数组特定的值过滤出来。</li>
+<li>Array.prototype.reduce后面接一个函数，接两个参数，第一个是前面累加的值，第二个是正咋处理的元素，这个API的用法就是用来求和的，你可以将这个想象成抢劫的应用。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjb5tfln40000v3olv290bjah" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjb5vxkup0001zxolhtbtxkn4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -185,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/DOM/" data-id="cjb5tfln70001v3oldx5dqzmy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/DOM/" data-id="cjb5vxkum0000zxol63954zgc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +255,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjb5tflne0008v3olov6ge0bs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjb5vxkuv0008zxoli5ootitj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -330,7 +350,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjb5tflnd0007v3olvonww1dd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjb5vxkuu0006zxolo69n63kq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -381,7 +401,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjb5tfln90002v3olp1ozcsjm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjb5vxkur0003zxolf6qzxxqq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,7 +493,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjb5tflnb0005v3oljxpvnb44" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjb5vxkut0005zxolqh3ts57a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,7 +560,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjb5tflna0004v3ol5cl6mwya" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjb5vxkuq0002zxolc3zs7e7c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -613,7 +633,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjb5tflnf0009v3olnruj12et" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjb5vxkuu0007zxolmxxr0ofj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -666,7 +686,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjb5tfln90003v3ol2k0kb0rs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjb5vxkus0004zxolct7itl4g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -711,7 +731,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjb5tflnc0006v3ol63rgisha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/17/hello-world/" data-id="cjb5vxkuw0009zxollp9zclzd" class="article-share-link">Share</a>
       
       
     </footer>
