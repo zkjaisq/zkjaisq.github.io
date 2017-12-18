@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,56 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/18/jQuery/" class="article-date">
+  <time datetime="2017-12-18T04:45:55.000Z" itemprop="datePublished">2017-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/18/jQuery/">jQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自己实现一个jQuery的思路和代码"><a href="#自己实现一个jQuery的思路和代码" class="headerlink" title="自己实现一个jQuery的思路和代码"></a>自己实现一个jQuery的思路和代码</h2><ul>
+<li><p>找到文档中的所有的div标签：<figure class="highlight plain"><figcaption><span>a </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建一个hash，key是class，value是true或者false，遍历这个对象，如果元素true就添加class如果是false就不添加。</span><br><span class="line"></span><br><span class="line">* &lt;code&gt;var x = document.querySelectorAll(&apos;div&apos;)</span><br><span class="line">  console.log(x)</span><br><span class="line"></span><br><span class="line">  var classes = &#123;&quot;a&quot;:true&#125;</span><br><span class="line">  for(let key in classes)&#123;</span><br><span class="line">  if(classes[key])&#123;</span><br><span class="line">    iterm3.classList.add(key)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    iterm3.classList.remove(key)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;&lt;/code&gt;</span><br><span class="line"></span><br><span class="line">* 然后用函数封装起来,遍历得到的所有div的伪数组，每个div都加上class</span><br><span class="line"></span><br><span class="line">  &lt;code&gt;function z(classes)&#123;</span><br><span class="line">  var x = document.querySelectorAll(&apos;div&apos;)</span><br><span class="line">  for(let i=0; i &lt; x.length;i++)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br></pre></td></tr></table></figure></p>
+<p>var value =classes[key]<br>var methodName =value?’add’:’remove’<br>x[i].classList<a href="key">methodName</a><br>```</p>
+<p>}<br>}<br>}</p>
+</li>
+<li><p>将函数命名，可以用命名空间</p>
+</li>
+</ul>
+<p><code></code></p>
+<p>window.zkj={}<br>zkj.addClass=function addClasses(classes){<br>var x = document.querySelectorAll(‘div’)<br>for(let i=0; i &lt; x.length;i++){<br>  for(let key in classes){<br>    var value =classes[key]<br>    var methodName =value?’add’:’remove’<br>    x[i].classList<a href="key">methodName</a></p>
+<p>}<br>}<br>}<br>zkj.addClass({“green”:true,”yellow”:true})</p>
+<ul>
+<li>将函数添加到原型中</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbc742cw0008vsoloypo6bqb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -134,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjb7poefg0000gqol50syr66r" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbc742cs0002vsolcahn5vy3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjb7poefu0001gqolv58xxh1r" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbc742cq0001vsolqymgeb6p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjb7poeg10008gqolwxnbgefo" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbc742cy000avsol8z1ar1fs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,7 +388,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjb7poeg6000agqolvfsjlnaw" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbc742cw0007vsolihrnqvcd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +483,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjb7poeg50009gqol3w6122iw" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbc742cx0009vsoldnu3beeq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -484,7 +534,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjb7poefx0005gqolcgiey4ul" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbc742da000bvsoll8f68ai4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -576,7 +626,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjb7poefw0004gqolalu0fned" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbc742ct0004vsol5gy0z0k6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -643,7 +693,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjb7poefv0002gqolfsm4l63f" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbc742cs0003vsolsc7fbdzc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -716,60 +766,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjb7poefz0007gqolm9ur2fuz" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/17/JS/" class="article-date">
-  <time datetime="2017-11-17T00:43:35.000Z" itemprop="datePublished">2017-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/JS/">JS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#JavaScript学习笔记</p>
-<ul>
-<li>JavaScript程序是一行一行的执行的，每一行就是一个语句。语句是为了执行某项命令而执行的操作，表达式是为了得到返回值的计算式，语句和表达式的区别是，语句是为了执行某项任务而进行的操作，一般不需要返回值，表达式是为了得到一个返回值，一定会返回一个值。</li>
-<li>语句是以 ;结束的，一个分号表示一个语句的结束，一行可以写多个语句。如果一行里面分号前面没有任何内容，JavaScript引擎视为kon空语句。</li>
-<li>表达式不需要以分号结束，一旦在表达式的后面加上分号，会被认为是语句，这样会产生一些没有意义的语句。</li>
-<li>变量是对『值』的引用，使用变量就是引用一个值。每个变量都有一个变量名。如果只是声明变量而没有赋值，那么该变量的值就是undefined，如果变量赋值的时候没有写『var』也是有效的，但是不写『var』的做法，不利于表达意图，而且容易不知不觉的创建全局变量，所以要使用『var』命令声明变量。如果一个变量没有声明就被使用JavaScript会报错，告诉你变量未定义。一个var命令可以声明多个变量，变量之间用逗号隔开。如果一个变量被声明两次，而且两次均被赋值，则第二次的赋值会覆盖第一次的赋值。</li>
-<li>变量提升指的是js文件中的所有的变量的声明语句都会被提升到代码的头部。</li>
-<li>标识符：第一个标识符可以是任意的Unicode字母，以及美元符号『$』和下划线『_』，第二个字符及后面的字符，除了Unicode字母。美元符号和下划线，还可以用字母0-9.</li>
-<li>JS中使用{}将多个相关的语句组合在一起，称为『区块』。JavaScript的区块不构成单独的作用域，也就是说，区块中的变量合区块外的变量，属于同一个作用域。</li>
-<li>if语句（if（））if结构先判断表达式的布尔值，然后执行不同的语句。在if后面加上{}这样方便插入语句。</li>
-<li>多个if…….else连在一起的时候，可以转为使用更方便的switch结构。在switch中根据变量的值，选择执行相应的case，如果所有的case都不符合，则执行最后的default部分。需要注意的事，每个case带吗内部的break语句不能少否则会街下去执行下一个case代码块，而不是跳出switch结构。</li>
-<li>三元运算符『?:』即该运算符需要三个运算子。</li>
-<li>while语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。while循环条件是一个表达式，必须放在（）中，代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。</li>
-<li>for循环：for语句后面的括号中有三个表达式，分别是确定循环的初始值只在循环开始的时候执行一次，循环的条件，递增表达式（完成后续操作，然后返回上一步，再一次检查循环条件，执行第二个语句直到条件不成立）</li>
-<li>do…….while循环：do……while循环先做一次循环，然后判断while的循环条件在做while循环。</li>
-<li>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。break语句用于跳出代码块或循环，continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮的循环。通常和标签一起使用。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjb7poefv0003gqolnrr3uhyp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbc742cv0006vsol9i5fd6tc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -808,9 +805,13 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/18/jQuery/">jQuery</a>
+          </li>
         
           <li>
             <a href="/2017/12/14/DOM/">DOM</a>
@@ -828,10 +829,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
             <a href="/2017/12/09/函数/">函数</a>
           </li>
         
-          <li>
-            <a href="/2017/12/01/JS基本语法/">JS基本语法</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -845,7 +842,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
