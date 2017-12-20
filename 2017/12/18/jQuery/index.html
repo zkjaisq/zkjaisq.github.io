@@ -5,16 +5,16 @@
   
   <title>jQuery | charity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自己实现一个jQuery的思路和代码 找到文档中的所有的div标签：a 123456789101112131415161718192021* 创建一个hash，key是class，value是true或者false，遍历这个对象，如果元素true就添加class如果是false就不添加。* &amp;lt;code&a">
+  <meta name="description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(va">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery">
 <meta property="og:url" content="http://yoursite.com/2017/12/18/jQuery/index.html">
 <meta property="og:site_name" content="charity">
-<meta property="og:description" content="自己实现一个jQuery的思路和代码 找到文档中的所有的div标签：a 123456789101112131415161718192021* 创建一个hash，key是class，value是true或者false，遍历这个对象，如果元素true就添加class如果是false就不添加。* &amp;lt;code&amp;gt;var x = document.querySelectorAll(&amp;apos;di">
-<meta property="og:updated_time" content="2017-12-18T06:41:01.384Z">
+<meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
+<meta property="og:updated_time" content="2017-12-19T09:14:33.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
-<meta name="twitter:description" content="自己实现一个jQuery的思路和代码 找到文档中的所有的div标签：a 123456789101112131415161718192021* 创建一个hash，key是class，value是true或者false，遍历这个对象，如果元素true就添加class如果是false就不添加。* &amp;lt;code&amp;gt;var x = document.querySelectorAll(&amp;apos;di">
+<meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
   
     <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
   
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -86,24 +86,56 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="自己实现一个jQuery的思路和代码"><a href="#自己实现一个jQuery的思路和代码" class="headerlink" title="自己实现一个jQuery的思路和代码"></a>自己实现一个jQuery的思路和代码</h2><ul>
-<li><p>找到文档中的所有的div标签：<figure class="highlight plain"><figcaption><span>a </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 创建一个hash，key是class，value是true或者false，遍历这个对象，如果元素true就添加class如果是false就不添加。</span><br><span class="line"></span><br><span class="line">* &lt;code&gt;var x = document.querySelectorAll(&apos;div&apos;)</span><br><span class="line">  console.log(x)</span><br><span class="line"></span><br><span class="line">  var classes = &#123;&quot;a&quot;:true&#125;</span><br><span class="line">  for(let key in classes)&#123;</span><br><span class="line">  if(classes[key])&#123;</span><br><span class="line">    iterm3.classList.add(key)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    iterm3.classList.remove(key)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;&lt;/code&gt;</span><br><span class="line"></span><br><span class="line">* 然后用函数封装起来,遍历得到的所有div的伪数组，每个div都加上class</span><br><span class="line"></span><br><span class="line">  &lt;code&gt;function z(classes)&#123;</span><br><span class="line">  var x = document.querySelectorAll(&apos;div&apos;)</span><br><span class="line">  for(let i=0; i &lt; x.length;i++)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br></pre></td></tr></table></figure></p>
-<p>var value =classes[key]<br>var methodName =value?’add’:’remove’<br>x[i].classList<a href="key">methodName</a><br>```</p>
-<p>}<br>}<br>}</p>
-</li>
-<li><p>将函数命名，可以用命名空间</p>
+<li>自己实现一个API的思路和代码</li>
+</ul>
+<ul>
+<li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
+<p>function addClass(node,className){  className.forEach((value)=&gt;node.classList.add(value))<br>}<br>function text(node){<br>  return text =node.innerText<br>}<br>addClass(iterm1,[1,2,3])<br>console.log(text(iterm3))</p>
+<p>2.给函数起一个名字，可以用命名空间来取<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```window.Node2 = function(node)&#123;</span><br></pre></td></tr></table></figure></p>
+  <figure class="highlight plain"><figcaption><span>function(className)&#123;className.forEach((value) </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><code></code></p>
-<p>window.zkj={}<br>zkj.addClass=function addClasses(classes){<br>var x = document.querySelectorAll(‘div’)<br>for(let i=0; i &lt; x.length;i++){<br>  for(let key in classes){<br>    var value =classes[key]<br>    var methodName =value?’add’:’remove’<br>    x[i].classList<a href="key">methodName</a></p>
-<p>}<br>}<br>}<br>zkj.addClass({“green”:true,”yellow”:true})</p>
+<p>3.使用字符串去查找：</p>
+<p>window.Node2 = function(nodeorSelector){</p>
+<p>let node</p>
+<p>  if(typeof nodeorSelector===’string’){</p>
+<p>node = document.querySelector(nodeorSelector)</p>
+<p>  }else if(nodeorSelector instanceof Node){</p>
+<p>node =nodeSelector</p>
+<p>  }<br>  return{</p>
+<p>addClass: function(className){</p>
+<p>  className.forEach((value) =&gt; node.classList.add(value))<br>  },<br>   getText : function(){return text = node.textContent</p>
+<p>  }<br>}<br>}</p>
+<p>var node2 = Node2(“#iterm2”)</p>
+<p>node2.addClass([“a”,”b”,”c”])<br>console.log(node2.getText())</p>
 <ul>
-<li>将函数添加到原型中</li>
+<li>可以查找多个并：</li>
+</ul>
+<p>window.jQuery = function(nodeorSelector){<br>let nodes={}<br>if(typeof nodeorSelector===’string’){<br>  let temp = document.querySelectorAll(nodeorSelector)<br>  for(let i= 0;i&lt;temp.length;i++){</p>
+<p>nodes[i]=temp[i]</p>
+<p>  }<br>  nodes.length = temp.length<br>  }else if(nodeorSelector instanceof Node){<br>node ={0:nodeorSelector,length:1}<br>  }<br>  nodes.addClass = function(className){</p>
+<pre><code>className.forEach((value) =&gt; {
+     for(let i=0;i&lt;nodes.length;i++){
+       nodes[i].classList.add(value)
+     }
+  })
+
+  }
+</code></pre><p>​    </p>
+<p>  nodes.getText =function(){<br>    let texts =[]<br>    for(let i=0;i&lt; nodes.length;i++){<br>      texts.push(nodes[i].innerText)</p>
+<pre><code>}
+ return texts
+</code></pre><p>  }<br>  nodes.setText =function(text){<br>    for(i=0;i &lt; nodes.length;i++){<br>      nodes[i].innerText = text<br>    }<br>  }<br>return nodes</p>
+<p>}</p>
+<p>var node2 = jQuery(“div”)<br>console.log(node2)<br>node2.addClass([‘a’])</p>
+<ul>
+<li>​</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbc742cw0008vsoloypo6bqb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbf0wa8p0007njoljzqc633d" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -114,7 +146,7 @@
   
   
     <a href="/2017/12/14/DOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">DOM</div>
     </a>
   
@@ -147,7 +179,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -184,7 +216,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
