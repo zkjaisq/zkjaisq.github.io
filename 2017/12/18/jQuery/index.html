@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/18/jQuery/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
-<meta property="og:updated_time" content="2017-12-21T14:35:48.401Z">
+<meta property="og:updated_time" content="2017-12-21T14:40:54.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
@@ -97,6 +97,7 @@
 </li>
 </ul>
 <p>3.使用字符串去查找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>window.Node2 = function(nodeorSelector){</p>
 <p>let node</p>
 <p>  if(typeof nodeorSelector===’string’){</p>
@@ -109,9 +110,11 @@
 <p>  }<br>}<br>}</p>
 <p>var node2 = Node2(“#iterm2”)</p>
 <p>node2.addClass([“a”,”b”,”c”])<br>console.log(node2.getText())</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>可以查找多个并：</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>window.jQuery = function(nodeorSelector){<br>let nodes={}<br>if(typeof nodeorSelector===’string’){<br>  let temp = document.querySelectorAll(nodeorSelector)<br>  for(let i= 0;i&lt;temp.length;i++){</p>
 <p>nodes[i]=temp[i]</p>
 <p>  }<br>  nodes.length = temp.length<br>  }else if(nodeorSelector instanceof Node){<br>node ={0:nodeorSelector,length:1}<br>  }<br>  nodes.addClass = function(className){</p>
@@ -129,6 +132,7 @@
 </code></pre><p>  }<br>  nodes.setText =function(text){<br>    for(i=0;i &lt; nodes.length;i++){<br>      nodes[i].innerText = text<br>    }<br>  }<br>return nodes</p>
 <p>}</p>
 <p>var node2 = jQuery(“div”)<br>console.log(node2)<br>node2.addClass([‘a’])</p>
+<p>```</p>
 <ul>
 <li>​</li>
 </ul>
@@ -136,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglbeoa0006gkoldgd874r0" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbgli62o0007htolz0rn86lu" class="article-share-link">Partager</a>
       
       
     </footer>
