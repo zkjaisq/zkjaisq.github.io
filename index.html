@@ -95,42 +95,60 @@
 </li>
 </ul>
 <p>3.使用字符串去查找：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>window.Node2 = function(nodeorSelector){</p>
 <p>let node</p>
 <p>  if(typeof nodeorSelector===’string’){</p>
 <p>node = document.querySelector(nodeorSelector)</p>
 <p>  }else if(nodeorSelector instanceof Node){</p>
-<p>node =nodeSelector</p>
-<p>  }<br>  return{</p>
+<p>node =nodeSelector}</p>
+<p>return{</p>
 <p>addClass: function(className){</p>
-<p>  className.forEach((value) =&gt; node.classList.add(value))<br>  },<br>   getText : function(){return text = node.textContent</p>
-<p>  }<br>}<br>}</p>
-<p>var node2 = Node2(“#iterm2”)</p>
-<p>node2.addClass([“a”,”b”,”c”])<br>console.log(node2.getText())</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以查找多个并：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>window.jQuery = function(nodeorSelector){<br>let nodes={}<br>if(typeof nodeorSelector===’string’){<br>  let temp = document.querySelectorAll(nodeorSelector)<br>  for(let i= 0;i&lt;temp.length;i++){</p>
-<p>nodes[i]=temp[i]</p>
-<p>  }<br>  nodes.length = temp.length<br>  }else if(nodeorSelector instanceof Node){<br>node ={0:nodeorSelector,length:1}<br>  }<br>  nodes.addClass = function(className){</p>
-<pre><code>className.forEach((value) =&gt; {
-     for(let i=0;i&lt;nodes.length;i++){
-       nodes[i].classList.add(value)
-     }
-  })
-
-  }
-</code></pre><p>​    </p>
-<p>  nodes.getText =function(){<br>    let texts =[]<br>    for(let i=0;i&lt; nodes.length;i++){<br>      texts.push(nodes[i].innerText)</p>
-<pre><code>}
- return texts
-</code></pre><p>  }<br>  nodes.setText =function(text){<br>    for(i=0;i &lt; nodes.length;i++){<br>      nodes[i].innerText = text<br>    }<br>  }<br>return nodes</p>
+<p>className.forEach((value) =&gt; node.classList.add(value))</p>
+<p>},</p>
+<p>getText : function(){return text = node.textContent</p>
 <p>}</p>
-<p>var node2 = jQuery(“div”)<br>console.log(node2)<br>node2.addClass([‘a’])</p>
-<p>```</p>
+<p>}</p>
+<p>}</p>
+<p>var node2 = Node2(“#iterm2”)</p>
+<p>node2.addClass([“a”,”b”,”c”])</p>
+<p>console.log(node2.getText())</p>
+<ul>
+<li><p>可以查找多个并：</p>
+<p>window.jQuery = function(nodeorSelector){</p>
+<p>let nodes={}</p>
+<p>if(typeof nodeorSelector===’string’){</p>
+<p>let temp = document.querySelectorAll(nodeorSelector)</p>
+<p>for(let i= 0;i&lt;temp.length;i++){</p>
+<p>nodes[i]=temp[i]</p>
+<p>}</p>
+<p>nodes.length = temp.length</p>
+<p>}else if(nodeorSelector instanceof Node){</p>
+<p>node ={0:nodeorSelector,length:1}</p>
+<p>}</p>
+<p>nodes.addClass = function(className){className.forEach((value) =&gt; {</p>
+<p>for(let i=0;i&lt;nodes.length;i++){</p>
+<p>nodes[i].classList.add(value)</p>
+<p>}</p>
+<p>})</p>
+<p>}</p>
+<p>nodes.getText =function(){</p>
+<p>let texts =[]</p>
+<p>for(let i=0;i&lt; nodes.length;i++){</p>
+<p>texts.push(nodes[i].innerText)</p>
+<p>}</p>
+<p>return texts</p>
+<p>}</p>
+<p>nodes.setText =function(text){</p>
+<p>for(i=0;i &lt; nodes.length;i++){</p>
+<p>nodes[i].innerText = text</p>
+<p>}}</p>
+<p>return nodes</p>
+<p>}</p>
+<p>var node2 = jQuery(“div”)</p>
+<p>console.log(node2)</p>
+<p>node2.addClass([‘a’])</p>
+</li>
+</ul>
 <ul>
 <li>​</li>
 </ul>
@@ -138,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbgli62o0007htolz0rn86lu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglzvhh000ajiol5gd126pu" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -221,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbgli62c0000htolwc4ehkus" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbglzvgz0000jiolft0zt5no" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -286,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbgli62k0001htolgjzmca4e" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbglzvh20001jiolwo1oxdtg" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -376,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbgli62p0009htol07u69m0l" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbglzvhf0008jiol87byecct" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -426,7 +444,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbgli62r000bhtol195vax7b" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbglzvhi000bjiolfvradyub" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -521,7 +539,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbgli62o0006htoldtp129wp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbglzvhe0006jiolfna1b4sb" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -572,7 +590,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbgli62m0004htolllmfxjh8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbglzvhd0005jiolj5zgb4ic" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -664,7 +682,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbgli62p0008htoley8e7jsf" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbglzvh50002jiolb2v4iwvr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -731,7 +749,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbgli62m0003htolo7eji556" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbglzvhc0004jiolszgrt0c1" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -804,7 +822,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbgli62n0005htolslibe3gh" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbglzvhf0007jiol99hr48yq" class="article-share-link">Partager</a>
       
       
     </footer>

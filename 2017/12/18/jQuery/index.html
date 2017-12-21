@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/18/jQuery/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
-<meta property="og:updated_time" content="2017-12-21T14:40:54.372Z">
+<meta property="og:updated_time" content="2017-12-21T14:54:23.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
@@ -97,42 +97,60 @@
 </li>
 </ul>
 <p>3.使用字符串去查找：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>window.Node2 = function(nodeorSelector){</p>
 <p>let node</p>
 <p>  if(typeof nodeorSelector===’string’){</p>
 <p>node = document.querySelector(nodeorSelector)</p>
 <p>  }else if(nodeorSelector instanceof Node){</p>
-<p>node =nodeSelector</p>
-<p>  }<br>  return{</p>
+<p>node =nodeSelector}</p>
+<p>return{</p>
 <p>addClass: function(className){</p>
-<p>  className.forEach((value) =&gt; node.classList.add(value))<br>  },<br>   getText : function(){return text = node.textContent</p>
-<p>  }<br>}<br>}</p>
-<p>var node2 = Node2(“#iterm2”)</p>
-<p>node2.addClass([“a”,”b”,”c”])<br>console.log(node2.getText())</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以查找多个并：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>window.jQuery = function(nodeorSelector){<br>let nodes={}<br>if(typeof nodeorSelector===’string’){<br>  let temp = document.querySelectorAll(nodeorSelector)<br>  for(let i= 0;i&lt;temp.length;i++){</p>
-<p>nodes[i]=temp[i]</p>
-<p>  }<br>  nodes.length = temp.length<br>  }else if(nodeorSelector instanceof Node){<br>node ={0:nodeorSelector,length:1}<br>  }<br>  nodes.addClass = function(className){</p>
-<pre><code>className.forEach((value) =&gt; {
-     for(let i=0;i&lt;nodes.length;i++){
-       nodes[i].classList.add(value)
-     }
-  })
-
-  }
-</code></pre><p>​    </p>
-<p>  nodes.getText =function(){<br>    let texts =[]<br>    for(let i=0;i&lt; nodes.length;i++){<br>      texts.push(nodes[i].innerText)</p>
-<pre><code>}
- return texts
-</code></pre><p>  }<br>  nodes.setText =function(text){<br>    for(i=0;i &lt; nodes.length;i++){<br>      nodes[i].innerText = text<br>    }<br>  }<br>return nodes</p>
+<p>className.forEach((value) =&gt; node.classList.add(value))</p>
+<p>},</p>
+<p>getText : function(){return text = node.textContent</p>
 <p>}</p>
-<p>var node2 = jQuery(“div”)<br>console.log(node2)<br>node2.addClass([‘a’])</p>
-<p>```</p>
+<p>}</p>
+<p>}</p>
+<p>var node2 = Node2(“#iterm2”)</p>
+<p>node2.addClass([“a”,”b”,”c”])</p>
+<p>console.log(node2.getText())</p>
+<ul>
+<li><p>可以查找多个并：</p>
+<p>window.jQuery = function(nodeorSelector){</p>
+<p>let nodes={}</p>
+<p>if(typeof nodeorSelector===’string’){</p>
+<p>let temp = document.querySelectorAll(nodeorSelector)</p>
+<p>for(let i= 0;i&lt;temp.length;i++){</p>
+<p>nodes[i]=temp[i]</p>
+<p>}</p>
+<p>nodes.length = temp.length</p>
+<p>}else if(nodeorSelector instanceof Node){</p>
+<p>node ={0:nodeorSelector,length:1}</p>
+<p>}</p>
+<p>nodes.addClass = function(className){className.forEach((value) =&gt; {</p>
+<p>for(let i=0;i&lt;nodes.length;i++){</p>
+<p>nodes[i].classList.add(value)</p>
+<p>}</p>
+<p>})</p>
+<p>}</p>
+<p>nodes.getText =function(){</p>
+<p>let texts =[]</p>
+<p>for(let i=0;i&lt; nodes.length;i++){</p>
+<p>texts.push(nodes[i].innerText)</p>
+<p>}</p>
+<p>return texts</p>
+<p>}</p>
+<p>nodes.setText =function(text){</p>
+<p>for(i=0;i &lt; nodes.length;i++){</p>
+<p>nodes[i].innerText = text</p>
+<p>}}</p>
+<p>return nodes</p>
+<p>}</p>
+<p>var node2 = jQuery(“div”)</p>
+<p>console.log(node2)</p>
+<p>node2.addClass([‘a’])</p>
+</li>
+</ul>
 <ul>
 <li>​</li>
 </ul>
@@ -140,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbgli62o0007htolz0rn86lu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglzvhh000ajiol5gd126pu" class="article-share-link">Partager</a>
       
       
     </footer>
