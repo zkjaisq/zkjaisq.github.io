@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/18/jQuery/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
-<meta property="og:updated_time" content="2017-12-19T09:14:33.754Z">
+<meta property="og:updated_time" content="2017-12-21T14:35:48.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
@@ -91,8 +91,9 @@
 <ul>
 <li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
 <p>function addClass(node,className){  className.forEach((value)=&gt;node.classList.add(value))<br>}<br>function text(node){<br>  return text =node.innerText<br>}<br>addClass(iterm1,[1,2,3])<br>console.log(text(iterm3))</p>
-<p>2.给函数起一个名字，可以用命名空间来取<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```window.Node2 = function(node)&#123;</span><br></pre></td></tr></table></figure></p>
-  <figure class="highlight plain"><figcaption><span>function(className)&#123;className.forEach((value) </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去Node.prototype.addClass = function (node,className){  className.forEach((value)=&gt;node.classList.add(value))},还可以新建一个Node，window.Node2 =function(node){return addClass:{},text:{}},</p>
+<p>window.Node2 = function(node){<br>  return{addClass: function(className){className.forEach((value) =&gt; node.classList.add(value))},</p>
+<p>getText : function(){return text = node.textContent}}}</p>
 </li>
 </ul>
 <p>3.使用字符串去查找：</p>
@@ -135,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbf0wa8p0007njoljzqc633d" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglbeoa0006gkoldgd874r0" class="article-share-link">Partager</a>
       
       
     </footer>

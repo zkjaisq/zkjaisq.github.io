@@ -89,8 +89,9 @@
 <ul>
 <li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
 <p>function addClass(node,className){  className.forEach((value)=&gt;node.classList.add(value))<br>}<br>function text(node){<br>  return text =node.innerText<br>}<br>addClass(iterm1,[1,2,3])<br>console.log(text(iterm3))</p>
-<p>2.给函数起一个名字，可以用命名空间来取<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```window.Node2 = function(node)&#123;</span><br></pre></td></tr></table></figure></p>
-  <figure class="highlight plain"><figcaption><span>function(className)&#123;className.forEach((value) </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去Node.prototype.addClass = function (node,className){  className.forEach((value)=&gt;node.classList.add(value))},还可以新建一个Node，window.Node2 =function(node){return addClass:{},text:{}},</p>
+<p>window.Node2 = function(node){<br>  return{addClass: function(className){className.forEach((value) =&gt; node.classList.add(value))},</p>
+<p>getText : function(){return text = node.textContent}}}</p>
 </li>
 </ul>
 <p>3.使用字符串去查找：</p>
@@ -133,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbf0wa8p0007njoljzqc633d" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglbeoa0006gkoldgd874r0" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -216,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbf0wa7o0001njolgbivukcj" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbglbeo80003gkol1mb3avqc" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -281,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbf0wa7q0003njolxsw7vng8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbglbenx0000gkolpo10lsbp" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -365,12 +366,13 @@
 <h2 id="共有属性"><a href="#共有属性" class="headerlink" title="共有属性"></a>共有属性</h2><ul>
 <li>String.prototype是String的公有属性的引用，如果没有就不能引用String的共有属性，会被垃圾回收，而<code>s.__proto__</code>是为了要使用String的公有属性，如果没有<code>__proto__</code>就不能够引用String的共有属性。</li>
 <li><img src="/Users/kejia/Desktop/JS中的对象.png" alt="JS中的对象"></li>
+<li>​</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbf0wa8r0009njol83ux9uqz" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbglbeoc000agkolvzzrdbpv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -420,7 +422,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbf0wa8o0006njolgwpo4l34" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbglbeod000bgkolk05bccal" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -515,7 +517,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbf0wa8q0008njol7l6y3hvi" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbglbeo90005gkolydq6ryx5" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -566,7 +568,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbf0wa95000bnjolnz94z85g" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbglbeob0008gkolg9d8py3g" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -658,7 +660,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbf0wa8s000anjolqvt5ngeu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbglbeo90004gkol4walj73v" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -725,7 +727,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbf0wa7q0002njolmzjpl85k" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbglbeo70002gkol2dhy8xmn" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -798,7 +800,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbf0wa8n0005njolntbeqpi1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbglbeoc0009gkols0f4r1bq" class="article-share-link">Partager</a>
       
       
     </footer>
