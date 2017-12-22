@@ -5,16 +5,16 @@
   
   <title>jQuery | charity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(va">
+  <meta name="description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容  12345678910111213function addClass(node,className)&amp;#123;  className.forEach((value)=&a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery">
 <meta property="og:url" content="http://yoursite.com/2017/12/18/jQuery/index.html">
 <meta property="og:site_name" content="charity">
-<meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
-<meta property="og:updated_time" content="2017-12-21T14:54:23.738Z">
+<meta property="og:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容  12345678910111213function addClass(node,className)&amp;#123;  className.forEach((value)=&amp;gt;node.classList.add(value))&amp;#125;function t">
+<meta property="og:updated_time" content="2017-12-22T11:51:07.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
-<meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容 function addClass(node,className){  className.forEach((value)=&amp;gt;node.classList.add(value))}function text(node){  return text =nod">
+<meta name="twitter:description" content="自己实现一个jQuery的思路和代码 自己实现一个API的思路和代码   1.包装两个函数，添加一个className和获取一个文本内容  12345678910111213function addClass(node,className)&amp;#123;  className.forEach((value)=&amp;gt;node.classList.add(value))&amp;#125;function t">
   
     <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
   
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -90,75 +90,29 @@
 </ul>
 <ul>
 <li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
-<p>function addClass(node,className){  className.forEach((value)=&gt;node.classList.add(value))<br>}<br>function text(node){<br>  return text =node.innerText<br>}<br>addClass(iterm1,[1,2,3])<br>console.log(text(iterm3))</p>
-<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去Node.prototype.addClass = function (node,className){  className.forEach((value)=&gt;node.classList.add(value))},还可以新建一个Node，window.Node2 =function(node){return addClass:{},text:{}},</p>
-<p>window.Node2 = function(node){<br>  return{addClass: function(className){className.forEach((value) =&gt; node.classList.add(value))},</p>
-<p>getText : function(){return text = node.textContent}}}</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function text(node)&#123;</span><br><span class="line"></span><br><span class="line">  return text =node.innerText</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addClass(iterm1,[1,2,3])</span><br><span class="line"></span><br><span class="line">console.log(text(iterm3))</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Node.prototype.addClass = function (node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))&#125;,还可以新建一个Node，window.Node2 =function(node)&#123;return addClass:&#123;&#125;,text:&#123;&#125;&#125;,</span><br><span class="line">  window.Node2 = function(node)&#123;</span><br><span class="line">    return&#123;addClass: function(className)&#123;className.forEach((value) =&gt; node.classList.add(value))&#125;,</span><br><span class="line">  getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>3.使用字符串去查找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 = function(nodeorSelector)&#123;</span><br><span class="line"></span><br><span class="line">let node</span><br><span class="line"></span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line"></span><br><span class="line">node = document.querySelector(nodeorSelector)</span><br><span class="line"></span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line"></span><br><span class="line">node =nodeSelector&#125;</span><br><span class="line"></span><br><span class="line">return&#123;</span><br><span class="line"></span><br><span class="line">addClass: function(className)&#123;</span><br><span class="line"></span><br><span class="line">className.forEach((value) =&gt; node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getText : function()&#123;return text = node.textContent</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var node2 = Node2(&quot;#iterm2&quot;)</span><br><span class="line"></span><br><span class="line">node2.addClass([&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])</span><br><span class="line"></span><br><span class="line">console.log(node2.getText())</span><br></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 </ul>
-<p>3.使用字符串去查找：</p>
-<p>window.Node2 = function(nodeorSelector){</p>
-<p>let node</p>
-<p>  if(typeof nodeorSelector===’string’){</p>
-<p>node = document.querySelector(nodeorSelector)</p>
-<p>  }else if(nodeorSelector instanceof Node){</p>
-<p>node =nodeSelector}</p>
-<p>return{</p>
-<p>addClass: function(className){</p>
-<p>className.forEach((value) =&gt; node.classList.add(value))</p>
-<p>},</p>
-<p>getText : function(){return text = node.textContent</p>
-<p>}</p>
-<p>}</p>
-<p>}</p>
-<p>var node2 = Node2(“#iterm2”)</p>
-<p>node2.addClass([“a”,”b”,”c”])</p>
-<p>console.log(node2.getText())</p>
 <ul>
 <li><p>可以查找多个并：</p>
-<p>window.jQuery = function(nodeorSelector){</p>
-<p>let nodes={}</p>
-<p>if(typeof nodeorSelector===’string’){</p>
-<p>let temp = document.querySelectorAll(nodeorSelector)</p>
-<p>for(let i= 0;i&lt;temp.length;i++){</p>
-<p>nodes[i]=temp[i]</p>
-<p>}</p>
-<p>nodes.length = temp.length</p>
-<p>}else if(nodeorSelector instanceof Node){</p>
-<p>node ={0:nodeorSelector,length:1}</p>
-<p>}</p>
-<p>nodes.addClass = function(className){className.forEach((value) =&gt; {</p>
-<p>for(let i=0;i&lt;nodes.length;i++){</p>
-<p>nodes[i].classList.add(value)</p>
-<p>}</p>
-<p>})</p>
-<p>}</p>
-<p>nodes.getText =function(){</p>
-<p>let texts =[]</p>
-<p>for(let i=0;i&lt; nodes.length;i++){</p>
-<p>texts.push(nodes[i].innerText)</p>
-<p>}</p>
-<p>return texts</p>
-<p>}</p>
-<p>nodes.setText =function(text){</p>
-<p>for(i=0;i &lt; nodes.length;i++){</p>
-<p>nodes[i].innerText = text</p>
-<p>}}</p>
-<p>return nodes</p>
-<p>}</p>
-<p>var node2 = jQuery(“div”)</p>
-<p>console.log(node2)</p>
-<p>node2.addClass([‘a’])</p>
 </li>
-</ul>
-<ul>
-<li>​</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- window.jQuery = function(nodeorSelector)&#123;</span><br><span class="line">  let nodes=&#123;&#125;</span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line">  let temp = document.querySelectorAll(nodeorSelector)</span><br><span class="line">  for(let i= 0;i&lt;temp.length;i++)&#123;</span><br><span class="line">  nodes[i]=temp[i]</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.length = temp.length</span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line">  node =&#123;0:nodeorSelector,length:1&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.addClass = function(className)&#123;className.forEach((value) =&gt; &#123;</span><br><span class="line">  for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].classList.add(value)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.getText =function()&#123;</span><br><span class="line">  let texts =[]</span><br><span class="line">  for(let i=0;i&lt; nodes.length;i++)&#123;</span><br><span class="line">  texts.push(nodes[i].innerText)</span><br><span class="line">  &#125;</span><br><span class="line">  return texts</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.setText =function(text)&#123;</span><br><span class="line">  for(i=0;i &lt; nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].innerText = text</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  return nodes</span><br><span class="line">  &#125;</span><br><span class="line">  var node2 = jQuery(&quot;div&quot;)</span><br><span class="line">  console.log(node2)</span><br><span class="line">  node2.addClass([&apos;a&apos;])</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglzvhh000ajiol5gd126pu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbi2n1yf00095nol331bvh0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,9 +121,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/12/22/jQuery-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/12/14/DOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">DOM</div>
     </a>
   
@@ -202,9 +165,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/22/jQuery-1/">jQuery</a>
+          </li>
         
           <li>
             <a href="/2017/12/18/jQuery/">jQuery</a>
@@ -222,10 +189,6 @@
             <a href="/2017/12/10/对象/">JS中的对象</a>
           </li>
         
-          <li>
-            <a href="/2017/12/09/函数/">函数</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -239,7 +202,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

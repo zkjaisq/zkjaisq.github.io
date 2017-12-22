@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,60 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-jQuery-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/22/jQuery-1/" class="article-date">
+  <time datetime="2017-12-22T09:24:15.000Z" itemprop="datePublished">2017-12-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/22/jQuery-1/">jQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="jQuery和DOM之间的转换"><a href="#jQuery和DOM之间的转换" class="headerlink" title="jQuery和DOM之间的转换"></a>jQuery和DOM之间的转换</h2><ul>
+<li>DOM对象和jQuery之间的转换，DOM对象可以通过jQuery进行包装成jQuery对象，$()，就可以将DOM对象包装成jQuery对象的了。jQuery对象通过[index]的方式可以将jQuery对象抓换位DOM对象。$(div)[0]=div,可以这样进行转换。</li>
+<li>全局变量尽量少用，尽量使用局部变量。声明一个函数立即执行，function f(){}.call()，这样可以，局部变量的作用域只是在函数的内部，在函数 外面就不能访问到函数里面的变量。但是创建了一个函数并且立即执行这样浏览器会报错的，在function前面加一些符号就可以避免这个错误的了，还可以使用的是，{let a=1}用一个代码块，使用<code>let</code>来声明一个变量。在这个代码块外面如果没有声明a，console.log(a)会打印出undefined。</li>
+</ul>
+<h2 id="轮播的思路"><a href="#轮播的思路" class="headerlink" title="轮播的思路"></a>轮播的思路</h2><ul>
+<li><p>让所有的轮播图在一行里面，轮播图窗口的大小就是一张图片的大小，在窗口之外的图片使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用jQuery获取到所有的元素，找到所有点击的图标的下标，每个看每个移动的距离乘以得到的下标就是每个图片所需要移动的距离。</span><br><span class="line"></span><br><span class="line">*</span><br></pre></td></tr></table></figure></p>
+<p>var buttons = $(‘#button &gt; span’)<br>var n = 0;<br>//.eq意思是找出对应的DOM对象，并封装成一个jQuery对象。<br>buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)</p>
+<pre><code>.siblings(&apos;.red&apos;).removeClass(&apos;red&apos;)
+</code></pre></li>
+</ul>
+<p>  var timerId = setInterval(() =&gt; {<br>      n += 1<br>      buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)<br>          .siblings(‘.red’).removeClass(‘red’)<br>  }, 1000)</p>
+<p>  $(‘.screen’).on(‘mouseenter’, function () {<br>      window.clearInterval(timerId)<br>  })<br>  $(‘.screen’).on(‘mouseleave’, function () {<br>      timerId = setInterval(() =&gt; {<br>          n += 1<br>          buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)<br>              .siblings(‘.red’).removeClass(‘red’)<br>      }, 1000)<br>  })<br>  ```</p>
+<ul>
+<li>设定一个美国一秒钟就可以是下一个span元素自动点击，使</li>
+</ul>
+<h2 id="写代码的原则"><a href="#写代码的原则" class="headerlink" title="写代码的原则"></a>写代码的原则</h2><ul>
+<li>JS内容、样式、行为的分离。其中HTML负责内容，CSS负责样式，JavaScript负责行为，这是写代码的原则。但是原则有时候也可以打破的，不是一定必须要这么坚持的原则，但是坚持原则也是比较好的一种行为的。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbi2n1yf00085nolhfga2bye" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -88,75 +142,29 @@
 </ul>
 <ul>
 <li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
-<p>function addClass(node,className){  className.forEach((value)=&gt;node.classList.add(value))<br>}<br>function text(node){<br>  return text =node.innerText<br>}<br>addClass(iterm1,[1,2,3])<br>console.log(text(iterm3))</p>
-<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去Node.prototype.addClass = function (node,className){  className.forEach((value)=&gt;node.classList.add(value))},还可以新建一个Node，window.Node2 =function(node){return addClass:{},text:{}},</p>
-<p>window.Node2 = function(node){<br>  return{addClass: function(className){className.forEach((value) =&gt; node.classList.add(value))},</p>
-<p>getText : function(){return text = node.textContent}}}</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function text(node)&#123;</span><br><span class="line"></span><br><span class="line">  return text =node.innerText</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addClass(iterm1,[1,2,3])</span><br><span class="line"></span><br><span class="line">console.log(text(iterm3))</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Node.prototype.addClass = function (node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))&#125;,还可以新建一个Node，window.Node2 =function(node)&#123;return addClass:&#123;&#125;,text:&#123;&#125;&#125;,</span><br><span class="line">  window.Node2 = function(node)&#123;</span><br><span class="line">    return&#123;addClass: function(className)&#123;className.forEach((value) =&gt; node.classList.add(value))&#125;,</span><br><span class="line">  getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>3.使用字符串去查找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 = function(nodeorSelector)&#123;</span><br><span class="line"></span><br><span class="line">let node</span><br><span class="line"></span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line"></span><br><span class="line">node = document.querySelector(nodeorSelector)</span><br><span class="line"></span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line"></span><br><span class="line">node =nodeSelector&#125;</span><br><span class="line"></span><br><span class="line">return&#123;</span><br><span class="line"></span><br><span class="line">addClass: function(className)&#123;</span><br><span class="line"></span><br><span class="line">className.forEach((value) =&gt; node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getText : function()&#123;return text = node.textContent</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var node2 = Node2(&quot;#iterm2&quot;)</span><br><span class="line"></span><br><span class="line">node2.addClass([&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])</span><br><span class="line"></span><br><span class="line">console.log(node2.getText())</span><br></pre></td></tr></table></figure>
+<p>​</p>
 </li>
 </ul>
-<p>3.使用字符串去查找：</p>
-<p>window.Node2 = function(nodeorSelector){</p>
-<p>let node</p>
-<p>  if(typeof nodeorSelector===’string’){</p>
-<p>node = document.querySelector(nodeorSelector)</p>
-<p>  }else if(nodeorSelector instanceof Node){</p>
-<p>node =nodeSelector}</p>
-<p>return{</p>
-<p>addClass: function(className){</p>
-<p>className.forEach((value) =&gt; node.classList.add(value))</p>
-<p>},</p>
-<p>getText : function(){return text = node.textContent</p>
-<p>}</p>
-<p>}</p>
-<p>}</p>
-<p>var node2 = Node2(“#iterm2”)</p>
-<p>node2.addClass([“a”,”b”,”c”])</p>
-<p>console.log(node2.getText())</p>
 <ul>
 <li><p>可以查找多个并：</p>
-<p>window.jQuery = function(nodeorSelector){</p>
-<p>let nodes={}</p>
-<p>if(typeof nodeorSelector===’string’){</p>
-<p>let temp = document.querySelectorAll(nodeorSelector)</p>
-<p>for(let i= 0;i&lt;temp.length;i++){</p>
-<p>nodes[i]=temp[i]</p>
-<p>}</p>
-<p>nodes.length = temp.length</p>
-<p>}else if(nodeorSelector instanceof Node){</p>
-<p>node ={0:nodeorSelector,length:1}</p>
-<p>}</p>
-<p>nodes.addClass = function(className){className.forEach((value) =&gt; {</p>
-<p>for(let i=0;i&lt;nodes.length;i++){</p>
-<p>nodes[i].classList.add(value)</p>
-<p>}</p>
-<p>})</p>
-<p>}</p>
-<p>nodes.getText =function(){</p>
-<p>let texts =[]</p>
-<p>for(let i=0;i&lt; nodes.length;i++){</p>
-<p>texts.push(nodes[i].innerText)</p>
-<p>}</p>
-<p>return texts</p>
-<p>}</p>
-<p>nodes.setText =function(text){</p>
-<p>for(i=0;i &lt; nodes.length;i++){</p>
-<p>nodes[i].innerText = text</p>
-<p>}}</p>
-<p>return nodes</p>
-<p>}</p>
-<p>var node2 = jQuery(“div”)</p>
-<p>console.log(node2)</p>
-<p>node2.addClass([‘a’])</p>
 </li>
-</ul>
-<ul>
-<li>​</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- window.jQuery = function(nodeorSelector)&#123;</span><br><span class="line">  let nodes=&#123;&#125;</span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line">  let temp = document.querySelectorAll(nodeorSelector)</span><br><span class="line">  for(let i= 0;i&lt;temp.length;i++)&#123;</span><br><span class="line">  nodes[i]=temp[i]</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.length = temp.length</span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line">  node =&#123;0:nodeorSelector,length:1&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.addClass = function(className)&#123;className.forEach((value) =&gt; &#123;</span><br><span class="line">  for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].classList.add(value)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.getText =function()&#123;</span><br><span class="line">  let texts =[]</span><br><span class="line">  for(let i=0;i&lt; nodes.length;i++)&#123;</span><br><span class="line">  texts.push(nodes[i].innerText)</span><br><span class="line">  &#125;</span><br><span class="line">  return texts</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.setText =function(text)&#123;</span><br><span class="line">  for(i=0;i &lt; nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].innerText = text</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  return nodes</span><br><span class="line">  &#125;</span><br><span class="line">  var node2 = jQuery(&quot;div&quot;)</span><br><span class="line">  console.log(node2)</span><br><span class="line">  node2.addClass([&apos;a&apos;])</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbglzvhh000ajiol5gd126pu" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbi2n1yf00095nol331bvh0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbglzvgz0000jiolft0zt5no" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbi2n1y900015nolrbvnt7sz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbglzvh20001jiolwo1oxdtg" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbi2n1y000005nolzx0k7t51" class="article-share-link">Share</a>
       
       
     </footer>
@@ -394,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbglzvhf0008jiol87byecct" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbi2n1yg000a5nol4juuxm1z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +452,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbglzvhi000bjiolfvradyub" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbi2n1yh000b5nolyuvcisgn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -539,7 +547,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbglzvhe0006jiolfna1b4sb" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbi2n1yd00055nolfc4u5ylk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -590,7 +598,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbglzvhd0005jiolj5zgb4ic" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbi2n1yc00045nolpimey0wz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -682,7 +690,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbglzvh50002jiolb2v4iwvr" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbi2n1z6000c5nolca9zz15a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -749,80 +757,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbglzvhc0004jiolszgrt0c1" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript数据类型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/20/JavaScript数据类型/" class="article-date">
-  <time datetime="2017-11-20T08:57:39.000Z" itemprop="datePublished">2017-11-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/20/JavaScript数据类型/">JavaScript数据类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。"><a href="#JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。" class="headerlink" title="JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。"></a>JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。</h2><pre><code>1.数值（number）：整数和小数
-2.字符串（string）：字符组成的文本。
-3.布尔值（boolean）：true（真）和false（假）两个特定的值。
-4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。
-5.null：表示无值，即此处的值就是「无」的状态。
-6.对象（object）：各种值组成的集合。
-</code></pre><h2 id="确定一个值到底是什么类型的三种方法："><a href="#确定一个值到底是什么类型的三种方法：" class="headerlink" title="确定一个值到底是什么类型的三种方法："></a>确定一个值到底是什么类型的三种方法：</h2><pre><code>1.typeof运算符  
-2.instanceof运算符
-3.Object.prototype.toString方法
-</code></pre><h2 id="typeof运算返回的类型"><a href="#typeof运算返回的类型" class="headerlink" title="typeof运算返回的类型"></a>typeof运算返回的类型</h2><ul>
-<li>数值、字符串、布尔值分别返回number、string、boolean，函数返回function，undefined返回undefined，其他情况全部返回object。<ul>
-<li>null表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这是就可以传入null。比如，某个函数接受引擎抛出的错误作为参数，如果运行中未出错，那么这个参数就会传入null，表示未发生错误。</li>
-<li>undefined表示『未定义』。<ul>
-<li>会返回布尔值的运算：<br>  1.两元逻辑运算符：&amp;&amp;（And），||(Or)<br>  2.前置逻辑运算符：!(Not)<br>  3.相等运算符：===，！==，==，！=<br>  4.比较运算符：&gt;,&gt;=,&lt;,&lt;=</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>如果JavaScript预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。undefined，null，false，0，NaN，’’或””（空字符串）这六个被转为false，其他值都视为true。空数组和空对象对应的布尔值都是true。</li>
-</ul>
-<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><ul>
-<li>JS中所有的数字都是64位浮点数形式储存的，某些运算只有证书才能完成，此时JS会自动吧64位浮点数，转为32位整数，再进行运算。</li>
-<li>JavaScript浮点数64个二进制位，从左边开始第一位，符号位，0表示正数，1表示负数。第2位到第12位是指数部分。第13位到第64位小数部分。</li>
-<li>JavaScript对整数提供四种进制的表示方法：十进制、十六进制、八进制、二进制<pre><code>1.十进制：没有前导0的数值
-2.八进制：有前缀0o或0O的数值，或者有前导0，且只用到0-7的八个阿拉伯数字的数值。
-3.十六进制：有前缀0x或0X的数值。
-4.二进制：有前缀0b或0B的数值。
-</code></pre></li>
-<li>默认情况下JavaScript内部会自动将八进制，十六进制，二进制转为十进制。</li>
-<li>如果八进制、十六进制、二进制的数值里面，出现不属于该进制的数字就会报错。</li>
-<li>NaN不是一种独立的数据类型，而是一种特殊的数值，他的数据类型依然属于Number。并且NaN不等于任何值，包括它本身。NaN与任何数包括它自己的运算得到的都是NaN.</li>
-<li>isNaN方法可以用来判断一个值是否为NaN，注意的是isNaN只对数值有效，如果传入其他的值，会被先转成数值。也就是说，isNaN位true的值可能不是NaN，而是一个字符串。对于空数组和只有一个数值的数组，isNaN返回false。</li>
-<li>Infinity表示『wuqiong』，用来表示两种场景，一种是一个正值太大，或一个负的数值太小，无法表示，另一种是非0数值除以0，得到Infinity。<h2 id="parseInt"><a href="#parseInt" class="headerlink" title="parseInt"></a>parseInt</h2></li>
-<li>parseInt方法用于将字符串转为整数，如果字符串头部有空格，空格会被自动去除。如果parseInt的参数不是字符串，则会先转为字符串再转换。字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。如果一个字符串的第一个字符不能转化为数字，返回NaN。</li>
-<li>如果字符串以0x或0X开头，parseInt会将其按照十六进制数解析，如果字符串以0开头，将其按照10进制解析。parseInt方法还可以接受第二个参数，表示被解析的值的进制parseInt（’10000’,16）.如果第二个参数不是数值，会被自动转为一个整数，这个整数只有在2到36之间才能得到有意义的结果，超出这个范围，则返回NaN。第二个参数是0，undefined和null，则直接hulve。</li>
-<li>parseFloat方法用于将一个字符串转为浮点数，如果字符串符合科学计数法，则会进行相应的转换，如果字符串包含不能转为浮点数的字符，则不再进行往后转换，返回已经转好的部分。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjbglzvhf0007jiol99hr48yq" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbi2n1yb00035nol4tq4jo13" class="article-share-link">Share</a>
       
       
     </footer>
@@ -861,9 +796,13 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/22/jQuery-1/">jQuery</a>
+          </li>
         
           <li>
             <a href="/2017/12/18/jQuery/">jQuery</a>
@@ -881,10 +820,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
             <a href="/2017/12/10/对象/">JS中的对象</a>
           </li>
         
-          <li>
-            <a href="/2017/12/09/函数/">函数</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -898,7 +833,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 张科家<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
