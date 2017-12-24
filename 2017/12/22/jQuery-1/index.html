@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/22/jQuery-1/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="jQuery和DOM之间的转换 DOM对象和jQuery之间的转换，DOM对象可以通过jQuery进行包装成jQuery对象，$()，就可以将DOM对象包装成jQuery对象的了。jQuery对象通过[index]的方式可以将jQuery对象抓换位DOM对象。$(div)[0]=div,可以这样进行转换。 全局变量尽量少用，尽量使用局部变量。声明一个函数立即执行，function f(){}.ca">
-<meta property="og:updated_time" content="2017-12-22T15:31:58.833Z">
+<meta property="og:updated_time" content="2017-12-24T11:50:21.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="jQuery和DOM之间的转换 DOM对象和jQuery之间的转换，DOM对象可以通过jQuery进行包装成jQuery对象，$()，就可以将DOM对象包装成jQuery对象的了。jQuery对象通过[index]的方式可以将jQuery对象抓换位DOM对象。$(div)[0]=div,可以这样进行转换。 全局变量尽量少用，尽量使用局部变量。声明一个函数立即执行，function f(){}.ca">
@@ -91,13 +91,7 @@
 </ul>
 <h2 id="轮播的思路"><a href="#轮播的思路" class="headerlink" title="轮播的思路"></a>轮播的思路</h2><ul>
 <li><p>让所有的轮播图在一行里面，轮播图窗口的大小就是一张图片的大小，在窗口之外的图片使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 使用jQuery获取到所有的元素，找到所有点击的图标的下标，每个看每个移动的距离乘以得到的下标就是每个图片所需要移动的距离。</span><br><span class="line"></span><br><span class="line">*</span><br></pre></td></tr></table></figure></p>
-<p>var buttons = $(‘#button &gt; span’)<br>var n = 0;<br>//.eq意思是找出对应的DOM对象，并封装成一个jQuery对象。<br>buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)</p>
-<pre><code>.siblings(&apos;.red&apos;).removeClass(&apos;red&apos;)
-</code></pre><p>var timerId = setInterval(() =&gt; {</p>
-<pre><code>n += 1
-buttons.eq(n % 3).trigger(&apos;click&apos;).addClass(&apos;red&apos;)
-    .siblings(&apos;.red&apos;).removeClass(&apos;red&apos;)
-</code></pre><p>}, 1000)<br>$(‘.screen’).on(‘mouseenter’, function () {</p>
+<p>var buttons = $(‘#button &gt; span’)<br>var n = 0;<br>//.eq意思是找出对应的DOM对象，并封装成一个jQuery对象。<br>buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)<br>.siblings(‘.red’).removeClass(‘red’)<br>var timerId = setInterval(() =&gt; {<br>   n += 1<br>   buttons.eq(n % 3).trigger(‘click’).addClass(‘red’)<br>   .siblings(‘.red’).removeClass(‘red’)<br>}, 1000)<br>$(‘.screen’).on(‘mouseenter’, function () {</p>
 <pre><code>window.clearInterval(timerId)
 </code></pre><p>})<br>$(‘.screen’).on(‘mouseleave’, function () {</p>
 <pre><code>timerId = setInterval(() =&gt; {
@@ -107,17 +101,18 @@ buttons.eq(n % 3).trigger(&apos;click&apos;).addClass(&apos;red&apos;)
 }, 1000)
 </code></pre><p>})<br>```</p>
 </li>
-<li><p>设定一个美国一秒钟就可以是下一个span元素自动点击，使</p>
-</li>
 </ul>
 <h2 id="写代码的原则"><a href="#写代码的原则" class="headerlink" title="写代码的原则"></a>写代码的原则</h2><ul>
 <li>JS内容、样式、行为的分离。其中HTML负责内容，CSS负责样式，JavaScript负责行为，这是写代码的原则。但是原则有时候也可以打破的，不是一定必须要这么坚持的原则，但是坚持原则也是比较好的一种行为的。</li>
+</ul>
+<h2 id="无缝轮播的思路"><a href="#无缝轮播的思路" class="headerlink" title="无缝轮播的思路"></a>无缝轮播的思路</h2><ul>
+<li>联想到生活中的跳绳，先让图片排成一排，然后再每个都从敞口过一遍，之后呢，每个再回到第一次的位置，就这样一直轮着下去，就实现一个无缝的轮播，这样要使用的display：absolute；使每个图片都不相互干扰。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbimc06b0008nsolnvsr3xox" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbkrff790009uwol0wpkd5k9" class="article-share-link">Share</a>
       
       
     </footer>
