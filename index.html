@@ -61,6 +61,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTTP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/30/HTTP/" class="article-date">
+  <time datetime="2017-12-30T07:40:14.000Z" itemprop="datePublished">2017-12-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/30/HTTP/">HTTP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>HTTP(HyperTest Transfer Protocol)超文本传输协议。Web使用HTTP的协议作为规范，完成从客户端到服务器端等一系列运作流程，可以说Web是建立在HTTP协议通讯上的。</li>
+<li>Tim.Berners-Lee(李爵士)创建了万维网，当时提出了3项WWW的构建技术就是：页面文本的标记语言HTML；作为传输协议的HTTP；指定文档所在地址的URL（Uniform Resource Locator统一资源定位符）。</li>
+<li>不同的硬件、操作系统之间的通信之间需要一种规则，我们把这种规则称之为协议（Protocol）。协议中存在各种各样的内容，把互联网相关的协议集合起来总称为TCP/IP。而HTTP则是在TCP/IP协议族的基础上运行的，HTTP属于他内部的一个子集。</li>
+<li>IP协议作用就是将各种数据包传递给对方。而要保证确实传送到对方哪里需要满足各种条件，其中最重要的就是IP地址和MAC地址。</li>
+<li>IP地址是指明了节点被分配到的地址，是可以变换的，MAC地址（Media Access Control Address）基本上不会更改。</li>
+<li>ARP是一种以解析地址的协议；根据通信方的IP地址就可以查到相对应MAC地址。</li>
+<li>TCP协议的三次握手是为了确保通信的可靠信，数据的传输过程中。发送端发送一个SYN标志的数据包给对方，接收端收到后，回传一个带有SKN/ACK标志的数据包以表示传达确认信息，最后发送端再回传一个带有ACK标志的数据包，戴白哦握手结束。</li>
+<li>DNS(Domain Name System)是和HTTP协议一样位于应用层的协议，提供域名到IP地址之间的解析服务。</li>
+</ul>
+<h2 id="URI（Uniform-Resource-Identifier）统一资源标识符"><a href="#URI（Uniform-Resource-Identifier）统一资源标识符" class="headerlink" title="URI（Uniform Resource Identifier）统一资源标识符"></a>URI（Uniform Resource Identifier）统一资源标识符</h2><ul>
+<li><p>URI就是由某个协议方案表示的资源的定位标识符，协议方案是指访问资源的时候所使用的协议类型的名称。</p>
+</li>
+<li><p>URI用字符串标识某一互联网资源，而URL表示资源的地点（互联网上所处的位置），由此可见URL是URI的子集。</p>
+</li>
+<li><p>URI包括URL和URN，其中URL就是我们常说的网址。</p>
+</li>
+<li><p>URL包括：</p>
+<p>1.协议（一般是http/https协议）</p>
+<p>2.域名：www.baidu.com，顶级域名是最后一个.右边部分，二级域名是一次往下输的就是，.com是顶级域名，baidu是二级域名，www是三级域名。</p>
+<p>3.端口号：一般是80</p>
+<p>4.路径：</p>
+<p>5.查询参数？。。。。</p>
+<p>6.锚点：</p>
+</li>
+</ul>
+<h2 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h2><ul>
+<li><p>客户端和服务器通过HTTP协议进行交互</p>
+</li>
+<li><p>浏览器发起请求，服务器在80端口接受请求，服务器返回内容(响应)，浏览器负责下载响应的内容。HTTP的作用就是直到浏览器和服务i去如何进行沟通。</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">1 动词 路径 协议/版本</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Key3: value3</span><br><span class="line">2 Content-Type: application/x-www-form-urlencoded</span><br><span class="line">2 Host: www.baidu.com</span><br><span class="line">2 User-Agent: curl/7.54.0</span><br><span class="line">3 </span><br><span class="line">4 要上传的数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Frank: xxx</span><br><span class="line"></span><br><span class="line">curl -X POST -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">POST / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line">Frank: xxx</span><br><span class="line">Content-Length: 10</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">1234567890</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>响应的格和内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Length: 2443</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Date: Tue, 10 Oct 2017 09:14:05 GMT</span><br><span class="line">Etag: &quot;5886041d-98b&quot;</span><br><span class="line">Last-Modified: Mon, 23 Jan 2017 13:24:45 GMT</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Server: bfe/1.0.8.18</span><br><span class="line">Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt; 后面太长，省略了……</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1 协议/版本号 状态码 状态解释</span><br><span class="line">2 Key1: value1</span><br><span class="line">2 Key2: value2</span><br><span class="line">2 Content-Length: 17931</span><br><span class="line">2 Content-Type: text/html</span><br><span class="line">3</span><br><span class="line">4 要下载的内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTTP状态码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">* 1xxx不常用，表示接受的请求正在处理</span><br><span class="line">* 2xx表示成功</span><br><span class="line">	2.200表示客户端发来的请求在服务器端被正常的处理。</span><br><span class="line">	2.204代表服务器接受的请求已成功的处理，但在返回的响应报文中不包含实体的主题部分。</span><br><span class="line">	3.206表示客户端进行了范围请求，服务器成功的执行了这部分的请求。</span><br><span class="line">* 3xx表示重定向</span><br><span class="line">	1.301永久性重定向，该状态码表示请求的资源已经被分配了新的URL以后应该使用资源现在所指定的URL，</span><br><span class="line">	2.302临时性重定向，该状态码表示请求的资源已经被分配了新的URL，希望用户本次使用新的URI访问。</span><br><span class="line">	3.303该状态码表示请求对应的资源存在着另一个URL，应该使用GET方法定向获取请求的资源。</span><br><span class="line">	4.304该状态码表示客户端发送附带条件的请求的时候，服务器端允许请求访问资源。单因发生请求请求未满足条件的情况后，直接返回304Not Modefied。</span><br><span class="line">	5.307表示临时重定向，</span><br><span class="line">* 4xx表示客户端的错误</span><br><span class="line">	1.400该状态码表示请求报文中存在着语法错误。当错误发生时应该修改请求的内容后再次发送请求。</span><br><span class="line">	2.401该状态码表示发送的请求需要有HTTP认证的认证消息。另外若之前已经进行过一次请求，则表示用户认证失败。</span><br><span class="line">	3.403Forbidden该状态码表示对请求资源的访问被服务器拒绝了。</span><br><span class="line">	4.404 Not Found表示服务器上没有请求的资源。</span><br><span class="line">* 5xx表示服务器错误</span><br><span class="line">	1，500改状态吗表示服务器在执行请求的时候发生错误，</span><br><span class="line">	2.503改状态码表示服务器暂时处于超负荷或正在进行停机维护。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/30/HTTP/" data-id="cjbuqmo5h0000rbol783qr5no" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-jQuery-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/22/jQuery-1/" class="article-date">
@@ -110,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbkrff790009uwol0wpkd5k9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbuqmo5v000arboldkgdkwmy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +245,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbkrff770007uwolklkrhf6o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbuqmo5x000crbolik20f6wc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbkrff6y0000uwolq3cf7yhz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbuqmo5o0003rbolgmr54uov" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbkrff710001uwolf8ub223g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbuqmo5l0001rboleqz2p2c1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbkrff7a000buwolx6cx50fm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbuqmo5z000drbolfmfiidbc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -457,7 +533,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbkrff780008uwolvuufk5ex" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbuqmo5w000brbolji5cwjd3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -552,7 +628,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbkrff79000auwolhuxlr3ix" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbuqmo5t0008rbol0icvhbm1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -603,7 +679,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbkrff760006uwolmnbc3dbn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjbuqmo5s0007rbolrm9itjr6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -695,74 +771,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbkrff740003uwolgrvwi3ot" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/25/HTML/" class="article-date">
-  <time datetime="2017-11-25T02:59:53.000Z" itemprop="datePublished">2017-11-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/25/HTML/">HTML</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HTML总结复习"><a href="#HTML总结复习" class="headerlink" title="HTML总结复习"></a>HTML总结复习</h1><pre><code>以前学习的了忘记了没有总结的觉得重要的现在重新写一篇博客来增加记忆，以便以后用来复习。温故而知新！
-</code></pre><h2 id="表单元素form"><a href="#表单元素form" class="headerlink" title="表单元素form"></a>表单元素form</h2><ul>
-<li>action：属性值指定了表单提交到服务器的地址。</li>
-<li>target：规定了在何处打开action的URL，和a标签的target一样有四个值，_blank(新窗口)、_self（本窗口）、_parent（父窗口）、_top(顶层窗口)。</li>
-<li>method：规定了用来发送表单数据的HTTP方法，post 或者get。</li>
-<li>accept：服务器接受的文件类型。</li>
-<li>表单中插入一个多行文本框textarea   ；语法&lt;textarea form=”form_id” textarea的form要是form的id选择器。</li>
-</ul>
-<pre><code>### input 自闭和标签
-    * type：button（可点击的按钮）、checkbox（复选框）、file(上传文件或者图片。)、password(输入密码)输入的字符会以点的形式出现、radio(单选框)input的name值要是一样的不然不能实现单选的要求、search(单行的搜索文本)、reset(重置所有的表单信息)、submit(提交)、email(用于e-mail地址的字段)当你的email格式不对事会提醒并不能提交表单、hidden(隐藏字段，用户看不见，但是会被提交到服务器)、image(用一个图形来做一个有提交功能的按钮)带有width和height属性、number(定义输入数字的字段)min规定允许的最小值max允许的最大值。
-    * maxlength：规定了input元素中输入的最大字符数。
-    * disabled：该input不能够被使用。
-    * checked：你还没开始选已经被选中了，用于radio和checkbox中。
-    * autofocus:在加了这个属性的input元素中会自动的现实光标，不需要按就直接的可以输入。
-    * list：input list=&quot;datalist_id&quot;  datalist和option一起使用可以制作一个下拉列表，但是disabled后被禁用的选项不出 现。
-    * 也可以使用select和option来制作下拉列表，optgroup是给option进行分组的。selected属性表示某个option会被默认选中。
-    * required：这个input元素中必须填写数据不然不能够提交表单。
-    * value：对于不同的type属性值有不同的用法。对于button、reset、submit、定义按钮上的文字；对于text、password、hidden、定义输入字段的初始值；对于checkbox、radio、image定义与元素相关的描述，该值会发送到表单的action URL中。
-    * name：设置名字，只有设置了那么属性，的表单元素才能在提交表单时传递它们的值。name属性用于JavaScript中引用元素，或者在表单提交后引用表单数据。
-    * placeholder：placeholder描述输入字段预期值的简短的提示信息，该提示会在用户输入值之前显示在输入字段中，placeholder属性适用的input类型有：text、search、url、tel、email和password。
-    * readonly：属性规定输入的内容不能够进行修改，防止用户对值进行修改。
-    * size：输入的input元素你可以看得见的宽度，实际可以输入的字符还是由maxlength来决定的。
-    * step：指定了合法数字间的输入间隔，如果step为3的时候，那么输入数字的间隔就是3，所输入的数字就是3的倍数。
-    * 可以使用label来和radio和checkbox一起使用，用来提高用户的体验，使可点击的区域变大。
-</code></pre><ul>
-<li>button：定义一个按钮。在button元素内部，你可以放置内容，比如文本或图像，这是该元素和input type=button元素创建按钮的区别。如果button不写type属性，表单中首个无type的button的type属性默认为是submit。</li>
-<li>aitical：标签定义的内容必须是有意义的且必须是独立于文档的其余部分，来源论坛帖子，博客文章，行文故事，评论。</li>
-<li>描述列表：dl、dt、dd、三个一起使用，一个dt可以对应多个dd。</li>
-<li>base:为页面上的所有的相对链接地址规定默认URL或默认目标，在一个文档中，最多能使用一个base元素，而且必须置于head元素内部。如果使用了base标签，泽必须具备href属性或者target属性，或者两个属性都具备。</li>
-<li>制作表格用到的三个元素：tr、th、td，th表示表头，tr表示有几行，th表示有几列。col元素中span表示col应该横跨的列数。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjbkrff730002uwolmhkxhl6x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjbuqmo5q0005rboli2j0qdv8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -806,6 +815,10 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       <ul>
         
           <li>
+            <a href="/2017/12/30/HTTP/">HTTP</a>
+          </li>
+        
+          <li>
             <a href="/2017/12/22/jQuery-1/">jQuery</a>
           </li>
         
@@ -819,10 +832,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
         
           <li>
             <a href="/2017/12/11/Array/">Array</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/10/对象/">JS中的对象</a>
           </li>
         
       </ul>
