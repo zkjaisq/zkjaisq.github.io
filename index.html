@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,75 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-AJAX和跨域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/AJAX和跨域/" class="article-date">
+  <time datetime="2018-01-11T01:19:36.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/AJAX和跨域/">AJAX和跨域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><ul>
+<li><p>什么是JSONP？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.请求方：一个网站的前端   响应方：服务器</span><br><span class="line">2.请求方动态的创建一个script标签，src指向的是响应方,同时传递一个查询参数?callback = xxxx</span><br><span class="line">3.响应方通过传递的查询参数?callback创建一个形如xxx.call(undefined,&quot;你想要的数据&quot;)</span><br><span class="line">4.请求方接受响应方发出的响应的时候，就会执行xxx.call(undefined.&quot;你想要的参数&quot;)</span><br><span class="line">5.请求方得到了想要的数据，并且删除script。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">请求方的代码：</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;zh-Hans&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;首页&lt;/title&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot;&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;您的账户余额是</span><br><span class="line">        &lt;span id=&quot;amount&quot;&gt;$$$amount$$$&lt;/span&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;button id=&quot;button&quot;&gt;付款&lt;/button&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    button.addEventListener(&apos;click&apos;, (x) =&gt; &#123;</span><br><span class="line">        let script= document.createElement(&apos;script&apos;)</span><br><span class="line">        let functionName = &apos;frank&apos; + parseInt(Math.random()*10000,10)</span><br><span class="line">        //创建一个函数名称，使得传过去的查询参数是一个随机数。</span><br><span class="line">        window[functionName] =(result)=&gt;&#123;</span><br><span class="line">            if(result === &apos;success&apos;)&#123;</span><br><span class="line">                alert(`$&#123;result&#125;`)</span><br><span class="line">                amount.innerText  = amount.innerText - 1</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                alert(faile)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;//因为functionName是一个随机数，不确定的因素，所以不能使用functionName.xxx   只能使用[]</span><br><span class="line">        script.src = &apos;http://jack.com:8002/pay?callback=&apos; + functionName//添加查询参数，使得可以知道调用的函数是xxx</span><br><span class="line">        //动态的创建了一个script标签在页面之中。并在成功之后删除该script标签，否则会占用过多的内存。</span><br><span class="line">        document.body.appendChild(script)</span><br><span class="line">        script.onload = function(e)&#123;</span><br><span class="line">            e.currentTarget.remove()</span><br><span class="line">            script.onerror = function(e)&#123;</span><br><span class="line">            e.currentTarget.remove()</span><br><span class="line">            alert(&apos;打钱失败&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">       /* image.src = &apos;/pay&apos;</span><br><span class="line">        image.onload=function()&#123;</span><br><span class="line">            alert(&apos;打钱成功&apos;)</span><br><span class="line">            amount.innerText = amount.innerText - 1</span><br><span class="line">        &#125;</span><br><span class="line">        image.onerror =function()&#123;</span><br><span class="line">            alert(&apos;打钱失败failse&apos;)</span><br><span class="line">        &#125;*/</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">响应方的代码：</span><br><span class="line">if(path === &apos;/pay&apos;)&#123;</span><br><span class="line">    var amount =fs.readFileSync(&apos;./amount&apos;,&apos;utf8&apos;)</span><br><span class="line">    //获取数据库中的amount数据。</span><br><span class="line">    var newAmount = amount - 1</span><br><span class="line">      fs.writeFileSync(&apos;./amount&apos;,newAmount)</span><br><span class="line">      //得到新的数据，并将新的数据存在数据库之中。</span><br><span class="line">      response.setHeader(&apos;Content-Type&apos;, &apos;applycation/script&apos;)</span><br><span class="line">      response.statusCode = 200</span><br><span class="line">	//成功返回状态码200；      response.write(`$&#123;query.callback&#125;.call(undefined,&apos;success&apos;)`)//得到查询参数</span><br><span class="line">    response.end()</span><br><span class="line">  &#125;</span><br><span class="line">  else&#123;</span><br><span class="line">    response.statusCode = 404</span><br><span class="line">    response.setHeader(&apos;Content-Type&apos;, &apos;text/html;charset=utf-8&apos;)</span><br><span class="line">    response.write(&apos;找不到对应的路径，你需要自行修改 index.js&apos;)</span><br><span class="line">    response.end()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面描述的是过程，请求方可以使用jQuery就可以发送JSONP请求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">button.addEventListener(&apos;click&apos;, (x) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url: &quot;http://jack.com:800/pay&quot;,</span><br><span class="line">			// Tell jQuery we&apos;re expecting JSONP</span><br><span class="line">            dataType: &quot;jsonp&quot;,</span><br><span class="line">            // Work with the response</span><br><span class="line">            success: function (response) &#123;</span><br><span class="line">               if(response === &quot;success&quot;)&#123;</span><br><span class="line">                alert(`$&#123;response&#125;`)</span><br><span class="line">                amount.innerText = amount.innerText - 1 </span><br><span class="line">               &#125;else&#123;</span><br><span class="line">                alert(&apos;failse&apos;)</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">* JQuery会帮你创建一个script标签向服务器发送请求，也会创建一个随机的查询参数，也会创建更一个函数，服务器接受到这个函数后并返回这个函数，请求方会调用这个函数。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><ul>
+<li><p>AJAX发送请求是怎样出现的呢：</p>
+<p>1.用form发送请求会刷新页面或重开页面的。(可以发送get请求或者POST请求)</p>
+<p>2.使用a标签发送请求GET请求，也会刷新页面，或者重开页面的。</p>
+<p>3.用img标签可以发送GET请求，但是只能以图片的形式展示。</p>
+<p>4.用link可以发送GET请求，也只能以CSS或者favicon的形式运行，并且link只能放在页面之中才能够运行的。</p>
+<p>5.用script发送请求，只能以脚本的形式运行。</p>
+</li>
+<li><p>什么是AJAX呢：</p>
+<p>1.使用XMLHttpRequest发送请求</p>
+<p>2.返回的是XML格式的字符串</p>
+<p>3，JS进行解析，并更新局部页面</p>
+</li>
+<li><p>HTTP中的路径都是绝对路径</p>
+</li>
+<li><p>使用AJAX发送请求的过程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let request = new XMLHttpRequest</span><br><span class="line">request.open(&quot;POST&quot;,&quot;/xxx&quot;)//设置请求的路径和请求的格式</span><br><span class="line">request.onreadystatechange = (x)=&gt;&#123;</span><br><span class="line">if(request.readystate === 4)&#123;</span><br><span class="line">   let string = request.responseText</span><br><span class="line">  let object = window.JSON.parse(string)</span><br><span class="line">&#125;else</span><br><span class="line">&#125;</span><br><span class="line">request.sed()  //发送请求</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>readyState中0表示open（）方法还未被调用；1表示send()方法还未被调用；2表示send()方法已经被调用；3表示正在下载，loading；4表示请求完成。响应返回是分不分返回的，并不是一次性返回的。</p>
+</li>
+<li><p>同源策略：只有当域名、协议、端口号一模一样的时候才叫同源；才能够发送AJAX请求，不是同源的可以通过CORS也能够使用AJAX发送请求。<code>response.setHeader(&#39;Content-type&#39;,&#39;application/javascript;charset =utf-8&#39;)</code>。除了使用CORS还可以使用的是JSONP来进行跨域。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/11/AJAX和跨域/" data-id="cjcadr3100000vtolnksr5qsr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-DOM事件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -101,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/03/DOM事件/" data-id="cjbyk4hd20001gcolaq7e07c5" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2018/01/03/DOM事件/" data-id="cjcadr3160002vtol9tzxf03a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -155,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/01/闭包/" data-id="cjbyk4hda000dgcolvsok7p1y" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2018/01/01/闭包/" data-id="cjcadr31c000cvtol27q4peen" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/HTTP/" data-id="cjbyk4hd30002gcoly8tl5nnx" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/30/HTTP/" data-id="cjcadr3170003vtoldm9pm7af" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjbyk4hd70008gcol1iwfbbqj" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjcadr3180006vtollizx0uq0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjbyk4hd80009gcolen8ntep0" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjcadr31d000evtol9lsr9u5v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -447,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjbyk4hd40003gcolosqc6oxg" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjcadr3140001vtoltsyy9kw9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -512,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjbyk4hct0000gcolm66grfzn" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjcadr3180005vtolxxjjeb0p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -602,7 +671,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjbyk4hd9000bgcolzdt8mrjk" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjcadr31m000gvtoluaa7lfjx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -652,102 +721,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjbyk4hdc000fgcol471fwje0" class="article-share-link">Delen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JS基本语法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/01/JS基本语法/" class="article-date">
-  <time datetime="2017-12-01T12:12:34.000Z" itemprop="datePublished">2017-12-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/01/JS基本语法/">JS基本语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本的语句"><a href="#基本的语句" class="headerlink" title="基本的语句"></a>基本的语句</h2><ul>
-<li><p>break:终止当前的循环，使程序跳转到下一个语句执行。是跳出一个代码块或者一个循环。和label一起使用，用来跳出某个循环到某个位置。</p>
-</li>
-<li><p>continu:表示终止本轮的循环，立即返回循环的头部开始下一轮的循环，还在这个循环之中，进行这个循环。和label一起使用，用来跳出某个循环到某个位置。</p>
-</li>
-<li><p>switch():将switch的表达式和case子句相比较，如果满足就执行case语句，如果不满足就到下一个case子句中匹配。每个case语句后面都要跟一个break，以用来跳出这个case语句。</p>
-</li>
-<li><p>for：循环语句的另一种方式，for(var i = 0    ; i &lt;10; i++ ){}，这个例子就是申明一个初始的值，当i&lt;10的时候就执行{}里面的语句，然后i+1，直达不满足i&lt;10的条件，结束循环。</p>
-</li>
-<li><p>while：while(){}包括一个循环条件和一个代码块，只要条件为真，就不断执行循环的代码块，直到不满足条件时候为止。</p>
-</li>
-<li><p>do…….while语句，不管条件是真还是假的都要先执行一次循环，do….while语句的后面一定要加分号，这个不能够省略。</p>
-</li>
-</ul>
-<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><ul>
-<li>所有var声明的变量都会被提升到代码块的头部，注意的是只有var声明的变量才会被提升。</li>
-</ul>
-<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
-<li><p>JavaScript中对变量的声明有三种方式，var声明  let声明   const声明，这三种声明的方式不同。</p>
-</li>
-<li><p>var声明不支持块级作用域，并且存在了变量提升。</p>
-</li>
-<li><p>let声明支持块级作用域，同一个区域不允许重复声明，否则会出现语法错误。存在暂存死区，let绑定不会变量提升，在变量let申明之前使用会报错，但是var不会，从代码块运行到变量的申明之间区域就是暂存死区。</p>
-</li>
-<li><p>const声明一个只读的常量，不能够进行修改的。</p>
-</li>
-</ul>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><ul>
-<li><p>加法运算符：即可以当做加法运算，也可以当做字符串的连接符，如果运算子是对像的话就先转换成普通类型的值(也就是先执行valueof，如果还不行的话就再toString方法，如果对象是Date实例，则先执行toString方法)，如果两个运算字有一个是字符串，另一个字符串就要转换成字符串，执行字符串的连接运算，否则，就是数值的加法运算。</p>
-</li>
-<li><p>余数运算符：10%3 //1  ，这个例子就是余数运算的结果。正负号是由第一个运算子的正负来决定的。</p>
-</li>
-<li><p>数值运算符(+,-):和加法减法不同这个是一元运算，只需要一个运算子，数值运算是将任何的值都转换成数字和Number函数的效果一样。负数值运算符，是将别的类型的值转化成负数。如果加两个负运算符则和+数值运算符想过相同。</p>
-</li>
-<li><p>比较运算符：其中相等运算和绝对相等运算不同，相等运算在比较的时候不是一个类型的会想转化为一个类型的数据，然后在看是不是相等。绝对相等不会进行类型的转换，如果一个是字符串String，一个是数字Number，在绝对相等的情况下就是false。其他的相等运算符如果是字符串的话就按照Unicode码数进行比较，如果不是的话，否则就先转化为数字Number().还有一个比较特殊的情况，任何的值和NaN比较返回的都是false。</p>
-</li>
-<li><p>且运算符：&amp;&amp;表示如果第一个运算子的布尔值位true，则返回第二个运算子的值。如果第一个运算子的布尔值位false，则直接返回第一个运算子的值，且不再对第二个运算子求值。这种跳过第二个运算子的机制，被称为『短路』。可以用来取代if结构。</p>
-</li>
-<li><p>或运算符：||的运算规则是如果第一个运算子的布尔值为true，则返回第一个运算子的值，且不再对第二个运算子求值。如果第一个运算子的布尔值位false，则返回第二个运算子。短路对这个运算符也适用。</p>
-</li>
-<li><p>三元运算符： ？：分隔三个表达式，运算规则是，如果第一个表达式的布尔值位true，则返回第二个表达式的值，否则返回第三个表达式的值。</p>
-</li>
-</ul>
-<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><ul>
-<li><p>或运算|，表示两个二进制位中只要有一个为1就返回1，否则返回0。与运算&amp;，两个二进制位中只要有一个为0，就返回0，否则返回1。位运算只对整数有效，遇到小数会自动把小数部分舍去，保留整数部分。</p>
-</li>
-<li><p>否运算~，简单记忆就是取反值减1。对一个小数连续两次去翻运算，就可以达到取整的效果。</p>
-</li>
-<li><p>异或运算 0 ^ 3 //3；两个二进制位不同时返回1，相同时返回0。特殊的用法是，连续对两个数a和b进行三次异或运算，可以互换它们的值，在不引入新的变量的情况下。</p>
-</li>
-<li><p>左移运算符，表示将一个二进制值向左移动指定的位数，尾部补上0，即乘以2的指定次方。(最高位符号位不参与移动。)如果左移0位，就相当于将该数值转为32位整数，等同于取整，对于正数和负数都有效。</p>
-</li>
-<li><p>右移运算&gt;&gt;,表示将一个数的二进制向右移动指定的位数，头部补0，也就是除以指定次方。右移运算可以模拟2的整除运算。</p>
-</li>
-<li><p>void运算符的作用是执行一个表达式，然后不返回任何值，或者说返回undefined。这个运算符主要使用于书签工具，以及用于在超级链接中插入代码，目的是返回undefined可以防止网页跳转。</p>
-</li>
-<li><p>圆括号的优先级别是最高的，可以用来提高运算的优先级。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjbyk4hdb000egcol4t1cqcph" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjcadr31e000fvtol93xjmovc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -776,7 +750,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
@@ -786,9 +760,13 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/11/AJAX和跨域/">AJAX和跨域</a>
+          </li>
         
           <li>
             <a href="/2018/01/03/DOM事件/">DOM事件</a>
@@ -804,10 +782,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
         
           <li>
             <a href="/2017/12/22/jQuery-1/">jQuery</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/18/jQuery/">jQuery</a>
           </li>
         
       </ul>
