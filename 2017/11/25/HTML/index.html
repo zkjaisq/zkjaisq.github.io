@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/25/HTML/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="HTML总结复习以前学习的了忘记了没有总结的觉得重要的现在重新写一篇博客来增加记忆，以便以后用来复习。温故而知新！ 表单元素form action：属性值指定了表单提交到服务器的地址。 target：规定了在何处打开action的URL，和a标签的target一样有四个值，_blank(新窗口)、_self（本窗口）、_parent（父窗口）、_top(顶层窗口)。 method：规定了用来发送表">
-<meta property="og:updated_time" content="2017-11-25T06:25:20.581Z">
+<meta property="og:updated_time" content="2018-01-31T06:25:36.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML">
 <meta name="twitter:description" content="HTML总结复习以前学习的了忘记了没有总结的觉得重要的现在重新写一篇博客来增加记忆，以便以后用来复习。温故而知新！ 表单元素form action：属性值指定了表单提交到服务器的地址。 target：规定了在何处打开action的URL，和a标签的target一样有四个值，_blank(新窗口)、_self（本窗口）、_parent（父窗口）、_top(顶层窗口)。 method：规定了用来发送表">
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -98,7 +98,7 @@
     * maxlength：规定了input元素中输入的最大字符数。
     * disabled：该input不能够被使用。
     * checked：你还没开始选已经被选中了，用于radio和checkbox中。
-    * autofocus:在加了这个属性的input元素中会自动的现实光标，不需要按就直接的可以输入。
+    * autofocus:在加了这个属性的input元素中会自动的实现光标，不需要按就直接的可以输入。
     * list：input list=&quot;datalist_id&quot;  datalist和option一起使用可以制作一个下拉列表，但是disabled后被禁用的选项不出 现。
     * 也可以使用select和option来制作下拉列表，optgroup是给option进行分组的。selected属性表示某个option会被默认选中。
     * required：这个input元素中必须填写数据不然不能够提交表单。
@@ -111,16 +111,22 @@
     * 可以使用label来和radio和checkbox一起使用，用来提高用户的体验，使可点击的区域变大。
 </code></pre><ul>
 <li>button：定义一个按钮。在button元素内部，你可以放置内容，比如文本或图像，这是该元素和input type=button元素创建按钮的区别。如果button不写type属性，表单中首个无type的button的type属性默认为是submit。</li>
-<li>aitical：标签定义的内容必须是有意义的且必须是独立于文档的其余部分，来源论坛帖子，博客文章，行文故事，评论。</li>
+<li>artical：标签定义的内容必须是有意义的且必须是独立于文档的其余部分，来源论坛帖子，博客文章，行文故事，评论。</li>
 <li>描述列表：dl、dt、dd、三个一起使用，一个dt可以对应多个dd。</li>
 <li>base:为页面上的所有的相对链接地址规定默认URL或默认目标，在一个文档中，最多能使用一个base元素，而且必须置于head元素内部。如果使用了base标签，泽必须具备href属性或者target属性，或者两个属性都具备。</li>
 <li>制作表格用到的三个元素：tr、th、td，th表示表头，tr表示有几行，th表示有几列。col元素中span表示col应该横跨的列数。</li>
+</ul>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><ul>
+<li>一种是标准的盒模型<code>box-sizing:conten-box</code>,这种盒模型你给它的宽度和高度是多少，再和模型中的就是多少；另外一种的盒模型是怪异盒模型<code>box-sizing:border-box</code>,如果是高度100px的话所对应的<code>content</code>的高度就要-border-padding来进行计算的了。也就是说标准的盒模型的总宽度就是content+margin+padding+border;而IE盒模型的总宽度就是content+margin的和。</li>
+</ul>
+<h2 id="语义化"><a href="#语义化" class="headerlink" title="语义化"></a>语义化</h2><ul>
+<li>语义化的好出：有利于SEO，有助于爬虫榨取更多的有效信息，爬虫是依赖于标签来确定上下文和各个关键字的权重；语义化的HTML在没有CSS的情况下也能呈现较好的内容结构与代码结构；方便其他设备的解析；便于团队的开发和维护。</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjcadr3190007vtoluoht7vth" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjd3sb6hs00039polhmalutia" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -130,7 +136,7 @@
 <nav id="article-nav">
   
     <a href="/2017/11/26/JS中的数据/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           JS中的数据
@@ -140,7 +146,7 @@
   
   
     <a href="/2017/11/20/JavaScript数据类型/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">JavaScript数据类型</div>
     </a>
   
@@ -173,9 +179,21 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/25/作用域/">作用域</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/24/flex布局/">flex布局</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/22/面向对象/">面向对象</a>
+          </li>
         
           <li>
             <a href="/2018/01/11/AJAX和跨域/">AJAX和跨域</a>
@@ -183,18 +201,6 @@
         
           <li>
             <a href="/2018/01/03/DOM事件/">DOM事件</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/01/闭包/">闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/30/HTTP/">HTTP</a>
-          </li>
-        
-          <li>
-            <a href="/2017/12/22/jQuery-1/">jQuery</a>
           </li>
         
       </ul>
@@ -210,7 +216,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 张科家<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
