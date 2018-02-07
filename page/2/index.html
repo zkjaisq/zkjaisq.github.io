@@ -61,6 +61,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/18/jQuery/" class="article-date">
+  <time datetime="2017-12-18T04:45:55.000Z" itemprop="datePublished">2017-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/18/jQuery/">jQuery</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自己实现一个jQuery的思路和代码"><a href="#自己实现一个jQuery的思路和代码" class="headerlink" title="自己实现一个jQuery的思路和代码"></a>自己实现一个jQuery的思路和代码</h2><ul>
+<li>自己实现一个API的思路和代码</li>
+</ul>
+<ul>
+<li><p>1.包装两个函数，添加一个className和获取一个文本内容</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function text(node)&#123;</span><br><span class="line"></span><br><span class="line">  return text =node.innerText</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addClass(iterm1,[1,2,3])</span><br><span class="line"></span><br><span class="line">console.log(text(iterm3))</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>2.给函数起一个名字，可以用命名空间来取windon.zkjDOM={};zkjDOM.addClass=addClass;zkjDOM.text=text;有可能别人也起了一个这样的函数名字，就把别人的函数给覆盖了；还可以直接将函数添加到Node.prototype中去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Node.prototype.addClass = function (node,className)&#123;  className.forEach((value)=&gt;node.classList.add(value))&#125;,还可以新建一个Node，window.Node2 =function(node)&#123;return addClass:&#123;&#125;,text:&#123;&#125;&#125;,</span><br><span class="line">  window.Node2 = function(node)&#123;</span><br><span class="line">    return&#123;addClass: function(className)&#123;className.forEach((value) =&gt; node.classList.add(value))&#125;,</span><br><span class="line">  getText : function()&#123;return text = node.textContent&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>3.使用字符串去查找：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">window.Node2 = function(nodeorSelector)&#123;</span><br><span class="line"></span><br><span class="line">let node</span><br><span class="line"></span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line"></span><br><span class="line">node = document.querySelector(nodeorSelector)</span><br><span class="line"></span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line"></span><br><span class="line">node =nodeSelector&#125;</span><br><span class="line"></span><br><span class="line">return&#123;</span><br><span class="line"></span><br><span class="line">addClass: function(className)&#123;</span><br><span class="line"></span><br><span class="line">className.forEach((value) =&gt; node.classList.add(value))</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getText : function()&#123;return text = node.textContent</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var node2 = Node2(&quot;#iterm2&quot;)</span><br><span class="line"></span><br><span class="line">node2.addClass([&quot;a&quot;,&quot;b&quot;,&quot;c&quot;])</span><br><span class="line"></span><br><span class="line">console.log(node2.getText())</span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<ul>
+<li><p>可以查找多个并：</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- window.jQuery = function(nodeorSelector)&#123;</span><br><span class="line">  let nodes=&#123;&#125;</span><br><span class="line">  if(typeof nodeorSelector===&apos;string&apos;)&#123;</span><br><span class="line">  let temp = document.querySelectorAll(nodeorSelector)</span><br><span class="line">  for(let i= 0;i&lt;temp.length;i++)&#123;</span><br><span class="line">  nodes[i]=temp[i]</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.length = temp.length</span><br><span class="line">  &#125;else if(nodeorSelector instanceof Node)&#123;</span><br><span class="line">  node =&#123;0:nodeorSelector,length:1&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.addClass = function(className)&#123;className.forEach((value) =&gt; &#123;</span><br><span class="line">  for(let i=0;i&lt;nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].classList.add(value)</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.getText =function()&#123;</span><br><span class="line">  let texts =[]</span><br><span class="line">  for(let i=0;i&lt; nodes.length;i++)&#123;</span><br><span class="line">  texts.push(nodes[i].innerText)</span><br><span class="line">  &#125;</span><br><span class="line">  return texts</span><br><span class="line">  &#125;</span><br><span class="line">  nodes.setText =function(text)&#123;</span><br><span class="line">  for(i=0;i &lt; nodes.length;i++)&#123;</span><br><span class="line">  nodes[i].innerText = text</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  return nodes</span><br><span class="line">  &#125;</span><br><span class="line">  var node2 = jQuery(&quot;div&quot;)</span><br><span class="line">  console.log(node2)</span><br><span class="line">  node2.addClass([&apos;a&apos;])</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjdczxa8j000bd2olksb9c5da" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/14/DOM/" class="article-date">
@@ -134,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjd8rd8qf0002jxolg8fs160l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjdczxa760002d2olvs840db8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjd8rd8qi0005jxolbxrn8ufx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjdczxa6x0001d2olf6mwt5tc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -289,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjd8rd8qq000gjxolnrzbynd5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjdczxa91000fd2ol5fkk854b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -339,7 +398,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjd8rd8qp000ejxol4aioi9jf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjdczxa8m000dd2oly2d0vq3f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -434,7 +493,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjd8rd8qm000ajxolf5dvvqb9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjdczxa9d000jd2olsqngezu1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +544,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjd8rd8ql0009jxolb4bjithw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjdczxa99000hd2ol09y06ckl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -577,7 +636,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjd8rd8qk0007jxolupeb3jd1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjdczxa800008d2olfg08lr3r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -650,7 +709,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjd8rd8qg0003jxolyg593ky6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/25/HTML/" data-id="cjdczxa9s000ld2olnkypv6ue" class="article-share-link">Share</a>
       
       
     </footer>
@@ -723,60 +782,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjd8rd8qo000djxollb54zj57" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JS" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/17/JS/" class="article-date">
-  <time datetime="2017-11-17T00:43:35.000Z" itemprop="datePublished">2017-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/JS/">JS</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#JavaScript学习笔记</p>
-<ul>
-<li>JavaScript程序是一行一行的执行的，每一行就是一个语句。语句是为了执行某项命令而执行的操作，表达式是为了得到返回值的计算式，语句和表达式的区别是，语句是为了执行某项任务而进行的操作，一般不需要返回值，表达式是为了得到一个返回值，一定会返回一个值。</li>
-<li>语句是以 ;结束的，一个分号表示一个语句的结束，一行可以写多个语句。如果一行里面分号前面没有任何内容，JavaScript引擎视为kon空语句。</li>
-<li>表达式不需要以分号结束，一旦在表达式的后面加上分号，会被认为是语句，这样会产生一些没有意义的语句。</li>
-<li>变量是对『值』的引用，使用变量就是引用一个值。每个变量都有一个变量名。如果只是声明变量而没有赋值，那么该变量的值就是undefined，如果变量赋值的时候没有写『var』也是有效的，但是不写『var』的做法，不利于表达意图，而且容易不知不觉的创建全局变量，所以要使用『var』命令声明变量。如果一个变量没有声明就被使用JavaScript会报错，告诉你变量未定义。一个var命令可以声明多个变量，变量之间用逗号隔开。如果一个变量被声明两次，而且两次均被赋值，则第二次的赋值会覆盖第一次的赋值。</li>
-<li>变量提升指的是js文件中的所有的变量的声明语句都会被提升到代码的头部。</li>
-<li>标识符：第一个标识符可以是任意的Unicode字母，以及美元符号『$』和下划线『_』，第二个字符及后面的字符，除了Unicode字母。美元符号和下划线，还可以用字母0-9.</li>
-<li>JS中使用{}将多个相关的语句组合在一起，称为『区块』。JavaScript的区块不构成单独的作用域，也就是说，区块中的变量合区块外的变量，属于同一个作用域。</li>
-<li>if语句（if（））if结构先判断表达式的布尔值，然后执行不同的语句。在if后面加上{}这样方便插入语句。</li>
-<li>多个if…….else连在一起的时候，可以转为使用更方便的switch结构。在switch中根据变量的值，选择执行相应的case，如果所有的case都不符合，则执行最后的default部分。需要注意的事，每个case带吗内部的break语句不能少否则会街下去执行下一个case代码块，而不是跳出switch结构。</li>
-<li>三元运算符『?:』即该运算符需要三个运算子。</li>
-<li>while语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。while循环条件是一个表达式，必须放在（）中，代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。</li>
-<li>for循环：for语句后面的括号中有三个表达式，分别是确定循环的初始值只在循环开始的时候执行一次，循环的条件，递增表达式（完成后续操作，然后返回上一步，再一次检查循环条件，执行第二个语句直到条件不成立）</li>
-<li>do…….while循环：do……while循环先做一次循环，然后判断while的循环条件在做while循环。</li>
-<li>break语句和continue语句都具有跳转作用，可以让代码不按既有的顺序执行。break语句用于跳出代码块或循环，continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮的循环。通常和标签一起使用。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/JS/" data-id="cjd8rd8qk0008jxolcy9f08hx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjdczxa8y000ed2oluxfjznmg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -820,6 +826,10 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       <ul>
         
           <li>
+            <a href="/2018/02/05/this/">this</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
           </li>
         
@@ -833,10 +843,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
         
           <li>
             <a href="/2018/01/22/面向对象/">面向对象</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/11/AJAX和跨域/">AJAX和跨域</a>
           </li>
         
       </ul>

@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/03/HTTP高级知识/index.html">
 <meta property="og:site_name" content="charity">
 <meta property="og:description" content="HTTP高级知识项目笔记 在form表单制作上的问题： 1.form表单中文字的对齐的方式。采用的是text-align：justify；来进行的，我表单的文字是写在li标签的里面的label标签里面的，所以要想让他们对齐就得让他们的宽度是一样的，然后用label::after{content:&amp;#39;&amp;#39;;display:inline-block;width:100%;},label标签">
-<meta property="og:updated_time" content="2018-02-04T11:10:00.867Z">
+<meta property="og:updated_time" content="2018-02-06T08:22:53.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP高级知识">
 <meta name="twitter:description" content="HTTP高级知识项目笔记 在form表单制作上的问题： 1.form表单中文字的对齐的方式。采用的是text-align：justify；来进行的，我表单的文字是写在li标签的里面的label标签里面的，所以要想让他们对齐就得让他们的宽度是一样的，然后用label::after{content:&amp;#39;&amp;#39;;display:inline-block;width:100%;},label标签">
@@ -98,23 +98,84 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">表单登录，登录的时候如果email和password没有填写也要进行前端验证。然后提交表单到服务器</span><br><span class="line">if(hash.email === &apos;&apos;)&#123;</span><br><span class="line">        $form.find(&apos;[name = &quot;email&quot;]&apos;).siblings(&apos;.error&apos;).text(&quot;填写邮箱好吗&quot;)</span><br><span class="line">       return </span><br><span class="line">    &#125;</span><br><span class="line">    if(hash.password === &apos;&apos;)&#123;</span><br><span class="line">        $form.find(&apos;[name = &quot;password&quot;]&apos;).siblings(&apos;.error&apos;).text(&apos;填写密码好吗&apos;)</span><br><span class="line">        return </span><br><span class="line">    &#125;</span><br><span class="line">   $.post(&apos;/sign_in&apos;,hash)</span><br><span class="line">   .then((response)=&gt;&#123;</span><br><span class="line">      window.location.href = &apos;/&apos;</span><br><span class="line">   &#125;,(request)=&gt;&#123;</span><br><span class="line">       console.log(request)//是符合JSON对象语法的字符串</span><br><span class="line">       let &#123;errors&#125; = request.responseJSON//创建一个errors的变量，将JSON对象的erroes属性赋值给这个变量。</span><br><span class="line">       console.log(errors)</span><br><span class="line">       if(errors.email &amp;&amp;errors.email === &apos;invalid&apos;)&#123;</span><br><span class="line">        $form.find(&apos;[name = &quot;email&quot;]&apos;).siblings(&apos;.error&apos;).text(&apos;邮箱格式错误&apos;)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">再就是服务器对表单进行验证的时候的事情的了，从数据库中拿到存储的数据，吧提交的表单数据和数据库中的数据进行对比，如果密码和邮箱都正确的话，就登录成功，前端就打开一个登录成功的页面就可以的。：</span><br><span class="line">if(path === &apos;/sign_in&apos;&amp;&amp;method=== &apos;GET&apos;)&#123;</span><br><span class="line">    let string = fs.readFileSync(&apos;./sign_in.html&apos;, &apos;utf8&apos;)</span><br><span class="line">      response.setHeader(&apos;Content-Type&apos;, &apos;text/html;charset=utf8&apos;)</span><br><span class="line">      response.write(string)</span><br><span class="line">      response.statusCode = 200</span><br><span class="line">      response.end()</span><br><span class="line">  &#125;else if(path ===&apos;/sign_in&apos;&amp;&amp; method === &apos;POST&apos;)&#123;</span><br><span class="line">    let body = [];</span><br><span class="line">    request.on(&apos;data&apos;, (chunk) =&gt; &#123;</span><br><span class="line">      body.push(chunk);</span><br><span class="line">    &#125;).on(&apos;end&apos;, () =&gt; &#123;</span><br><span class="line">      body = Buffer.concat(body).toString();</span><br><span class="line">      console.log(body)</span><br><span class="line">      let hash = &#123;&#125;</span><br><span class="line">      let string = body.split(&apos;&amp;&apos;)//[&apos;email=1&apos;,&apos;password = 2&apos;,&apos;passwordconfirmation=3&apos;]</span><br><span class="line">      string.forEach((string) =&gt; &#123;</span><br><span class="line">        let part = string.split(&apos;=&apos;)//[&apos;email&apos;,&apos;1&apos;]</span><br><span class="line">        let key = part[0]</span><br><span class="line">        let value = part[1]</span><br><span class="line">        hash[key] = decodeURIComponent(value)</span><br><span class="line">      &#125;)</span><br><span class="line">      console.log(hash)</span><br><span class="line">      let &#123; email, password&#125; = hash</span><br><span class="line">      console.log(email)</span><br><span class="line">      console.log(password)</span><br><span class="line">      var users = fs.readFileSync(&apos;./users&apos;)</span><br><span class="line">      users=JSON.parse(users)</span><br><span class="line">      console.log(users)</span><br><span class="line">      let found</span><br><span class="line">      for(let i=0;i&lt;users.length;i++)&#123;</span><br><span class="line">        if(users[i].email === email &amp;&amp; users[i].password === password)&#123;</span><br><span class="line">          found =true</span><br><span class="line">          break</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      if(found)&#123;</span><br><span class="line">        response.setHeader(&apos;Set-Cookie&apos;,`sign_inemail=$&#123;email&#125;`)</span><br><span class="line">        response.statusCode = 200</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        response.statusCode = 401</span><br><span class="line">      &#125;</span><br><span class="line">    response.end()</span><br><span class="line">    &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    前端的处理</span><br><span class="line">    </span><br><span class="line">     $.post(&apos;/sign_in&apos;,hash)</span><br><span class="line">   .then((response)=&gt;&#123;</span><br><span class="line">      window.location.href = &apos;/&apos;</span><br><span class="line">   &#125;,(request)=&gt;&#123;</span><br><span class="line">       console.log(request)//是符合JSON对象语法的字符串</span><br><span class="line">       let &#123;errors&#125; = request.responseJSON//创建一个errors的变量，将JSON对象的erroes属性赋值给这个变量。</span><br><span class="line">       console.log(errors)</span><br><span class="line">       if(errors.email &amp;&amp;errors.email === &apos;invalid&apos;)&#123;</span><br><span class="line">        $form.find(&apos;[name = &quot;email&quot;]&apos;).siblings(&apos;.error&apos;).text(&apos;邮箱格式错误&apos;)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>cookie是服务器给返回值设置的一个类似就叫标记的东西吧，我是这么理解的，从此以后当你每次访问和我这个网站同源的网站的时候，请求的头部一定会带上这个cookie的。注意cookie是在<strong>请求的头部</strong>。你下次访问的时候就可以不用重新登录了，应为Cookie保存的有你的信息。</p>
+<li><p>cookie是服务器给返回值设置的一个类似就叫标记的东西吧，我是这么理解的，从此以后当你每次访问和我这个网站同源的网站的时候，<strong>请求的头部</strong>一定会带上这个cookie的。注意cookie是在<strong>请求的头部</strong>。你下次访问的时候就可以不用重新登录了，应为Cookie保存的有你的信息。</p>
 </li>
 <li><p>Cookie的特点：</p>
-<p>1.服务器通过Set-Cookie 响应头设置Cookie</p>
-<p>2.浏览器得到Cookie之后每次请求的话都要带上Cookie。</p>
-<p>3.服务器读取到Cookie之后就可以知道用户的信息了。</p>
-<p>4.Cookie在window中是存在c盘的文件中的</p>
-<p>5.Cookie是可以修改的</p>
-<p>6.Cookie的有效的市场一般在20分钟左右，后端可以强制设置有效期。</p>
+<p>1.<strong>服务器通过Set-Cookie 响应头设置Cookie</strong></p>
+<p>2.<strong>浏览器得到Cookie之后每次请求的话都要带上Cookie。</strong></p>
+<p>3.<strong>服务器读取到Cookie之后就可以知道用户的信息了。</strong></p>
+<p>5.<strong>Cookie是可以修改的</strong></p>
+<p>6.<strong>Cookie的有效的时长一般在20分钟左右，后端可以强制设置有效期。</strong></p>
+<p>7.<strong>Cookie大小限制在4k左右。</strong></p>
+<p>8.<strong>Cookie默认在用户关闭页面后就失效了，后台代码可以任意设置Cookie的过期时间的</strong>。</p>
+</li>
+<li><p>Cookie最大的问题就是可以被篡改，所以在这种情况下就有了Session。</p>
+</li>
+</ul>
+<h3 id="Session和Cookie的区别"><a href="#Session和Cookie的区别" class="headerlink" title="Session和Cookie的区别"></a>Session和Cookie的区别</h3><ul>
+<li><p>一般来说Session是基于Cookie来实现的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Cookie的缺点是用户可以随意的篡改的，如果吧用户的邮箱暴露出来，用户篡改了Cookie的话，就可以登录别人的页面，这个时候就存在安全隐患的了。很好的一种解决的方式就是使用Session。</span><br><span class="line">let  sessions =&#123;&#125;</span><br><span class="line"></span><br><span class="line">//在访问路径中写的</span><br><span class="line">let sessionId = Math.random()*100000</span><br><span class="line">sessions[sessionId] = &#123;sign_inemail:email&#125;</span><br><span class="line">response.setHeader(&apos;set-Cookie&apos;,`sessionId =$&#123;sessionId&#125;`)</span><br><span class="line">这样暴露给用户的cookie就是一个随机0-10000之间的一个随机数。</span><br><span class="line">在sessions的hash中保存了sessionId所对应的email，所以的话在用户登录成功以后，要查询到用户的email的话就可以通过let email =sessions[hash.sessionId].sign_inemail</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Session:</p>
+<p>1.将SessionID（随机数）通过Cookie发送给客户端</p>
+<p>2.客户端访问服务器的时候会带上这个Cookie，</p>
+<p>3.服务器中有一块内存（哈希表）保存了所有的session</p>
+<p>4.通过SessionID可以在哈希表中产训到用户的所有的信息，email、ID等。</p>
+<p>5.这块内存（哈希表）就是服务器上的所有session。</p>
+</li>
+</ul>
+<h2 id="localstorage"><a href="#localstorage" class="headerlink" title="localstorage"></a>localstorage</h2><ul>
+<li><p>本质上是浏览器上的一个hash。</p>
+</li>
+<li><p>localstorage的用法一下几种;</p>
+<p>1.<code>localstorage.setItem(&#39;a&#39;,1)</code>,<code>localstorage.getItem(&#39;a&#39;)</code>,<code>locastorage.clear()</code>setItem接受两个参数，getItem接受一个参数，clear不接受参数，将localStorage清空。</p>
+</li>
+<li><p>localStorage是存在C盘的一个文件里面的了，是一个持久化存储的地方。localStorage的一个最主要的用法就是用来提示信息的。</p>
+</li>
+<li><p>localStorage的特点：</p>
+<p>1.LocalStorage跟HTTP无关的</p>
+<p>2.HTTP不会带上LocalStorage的值</p>
+<p>3，只有相同域名的页面才能够互相读取LocalStorage</p>
+<p>4.每个域名LocalStorage最大储存量是5M左右，字符数限制在500万字符左右。（每个浏览器可以存储的都是不一样的）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let already = window.localStorage.getItem(&apos;已经提示过了&apos;)</span><br><span class="line">if(!already)&#123;</span><br><span class="line">  alert(&quot;shenmemem&quot;)</span><br><span class="line">  localStorage.setItem(&apos;已经提示过了&apos;，&apos;true&apos;)</span><br><span class="line">&#125;</span><br><span class="line">这样的话当你下次刷新页面就不会在进行弹出对话框的了。</span><br></pre></td></tr></table></figure>
 <p>​</p>
+<p>5.常用的场景：记录有没有提示用户（没有用的信息，不能记录密码）</p>
+<p>6.LocalStorage永久有效，除非用户清理缓存。</p>
+</li>
+</ul>
+<h2 id="SessionStorage"><a href="#SessionStorage" class="headerlink" title="SessionStorage"></a>SessionStorage</h2><ul>
+<li><p>SessionStorage的特点就是：</p>
+<p>1.和HTTP无关</p>
+<p>2.HTTP不会带上SessionStorage的值</p>
+<p>3.只有相同域名的页面才能够相互读取SessionStorage（但是没有同源那么严格）</p>
+<p>4.每个域名的SessionStorage的最大存储量是500万字符左右，每个浏览器的存储的都是不一样的。</p>
+<p>5.SessionStorage在页面关闭之后就会失效。</p>
+</li>
+</ul>
+<h2 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h2><ul>
+<li>缓存控制，如果你请求的页面的内容相同的话，请求的时间就会很快的了。</li>
+<li>后台设置Cache-Control的代码`response.setHeader(‘cache-control’,’max-ege=30’);然后在你设置的这段时间内如果你刷新页面的话就不会向浏览器发送请求的。页面的下载时间就是0。</li>
+<li>存在的问题就是如果你所有的页面都是设置缓存的话，那么用户在你设置的缓存的时间内就不能狗获取到最新的代码。</li>
+<li>如果你要进行更行的话，就要在那个留得入口的地方把那个URL修改一下，在文件后面加一个查询参数啥的，和上次的不一样的就可以。</li>
+</ul>
+<h2 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h2><ul>
+<li>这个也是设置缓存的，但是设置的时间是到了那个时间缓存就会被清理掉的，例如`response.setHeader(‘Expires’,’sun 2018’),那么缓存到这个时候就可以呗清理掉的了。而且这个时间是以你本地的时间来进行确认的，一旦你本地的时间有问题的话，这个缓存的时间就会出现问题了。</li>
+</ul>
+<h2 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h2><ul>
+<li><p>想要明白这个就要限制到MD5是什么。MD5是一个斩妖算法。将一个字符串编程另一个字符串的。如果下载的一个文件的MD5不匹配，就说明文件和下载下来的有问题。MD5的文件的差异越小，MD5转换出来的差异越大。</p>
+</li>
+<li><p>后台代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let fileMD5 = MD5(string)</span><br><span class="line">response.setHeader(&quot;Etag&quot;,&quot;fileMD5&quot;)</span><br></pre></td></tr></table></figure>
+<p>然后在你刷新页面的时候请求的头部里面会有一个新的头，就是<code>If-None-Match</code>,这个头对应的内容就是上次返回的文件的MD5的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let fileMD5 = MD5(string)</span><br><span class="line">if(request.header[If-None-Match] ===fileMD5)&#123;</span><br><span class="line">  response.setStatus = 304</span><br><span class="line">&#125;</span><br><span class="line">resposne.setHeader(&quot;Etag&quot;,&quot;fileMD5&quot;)</span><br><span class="line">resposne.end</span><br></pre></td></tr></table></figure>
+<p>这个和Cache-Control的区别是Cache-Control是没有发送请求的，而Etag是发送了请求但是没有进行下载的。</p>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/03/HTTP高级知识/" data-id="cjd8rd8qj0006jxol1q366dc4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/03/HTTP高级知识/" data-id="cjdczxa7h0005d2olbmhlrg1f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -122,6 +183,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/02/05/this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          this
+        
+      </div>
+    </a>
   
   
     <a href="/2018/01/25/作用域/" id="article-nav-older" class="article-nav-link-wrap">
@@ -163,6 +233,10 @@
       <ul>
         
           <li>
+            <a href="/2018/02/05/this/">this</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
           </li>
         
@@ -176,10 +250,6 @@
         
           <li>
             <a href="/2018/01/22/面向对象/">面向对象</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/11/AJAX和跨域/">AJAX和跨域</a>
           </li>
         
       </ul>
