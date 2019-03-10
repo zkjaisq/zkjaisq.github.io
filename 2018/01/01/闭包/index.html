@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>闭包 | charity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是闭包： 12345678910111213141516闭包就是一个函数可以访问到它外部的变量，那么这个函数和这个变量就组成了一个闭包。function f1()&amp;#123;  var n =999  fucntion f2()&amp;#123;    alert(n)  &amp;#125;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包">
+<meta property="og:url" content="http://yoursite.com/2018/01/01/闭包/index.html">
+<meta property="og:site_name" content="charity">
+<meta property="og:description" content="什么是闭包： 12345678910111213141516闭包就是一个函数可以访问到它外部的变量，那么这个函数和这个变量就组成了一个闭包。function f1()&amp;#123;  var n =999  fucntion f2()&amp;#123;    alert(n)  &amp;#125;&amp;#125;上面的函数f2和n组成了一个闭包。* 也可以说闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包">
+<meta property="og:updated_time" content="2018-01-03T03:33:17.289Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="闭包">
+<meta name="twitter:description" content="什么是闭包： 12345678910111213141516闭包就是一个函数可以访问到它外部的变量，那么这个函数和这个变量就组成了一个闭包。function f1()&amp;#123;  var n =999  fucntion f2()&amp;#123;    alert(n)  &amp;#125;&amp;#125;上面的函数f2和n组成了一个闭包。* 也可以说闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包">
+  
+    <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">charity</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/01/闭包/" class="article-date">
+  <time datetime="2018-01-01T01:40:45.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      闭包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>什么是闭包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">闭包就是一个函数可以访问到它外部的变量，那么这个函数和这个变量就组成了一个闭包。</span><br><span class="line">function f1()&#123;</span><br><span class="line">  var n =999</span><br><span class="line">  fucntion f2()&#123;</span><br><span class="line">    alert(n)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">上面的函数f2和n组成了一个闭包。</span><br><span class="line">* 也可以说闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常用的方式就是在一个函数的内部创建另一个函数。</span><br><span class="line">function createComparise(propertyName)&#123;</span><br><span class="line">  return function(object1,object2)&#123;</span><br><span class="line">    var value1 = object1[propertuName];</span><br><span class="line">    var value2 = object2[propertyName];//这两个函数访问了函数外的变量proprtyName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在JavaScript中子对象会一级一级的向上寻找所有的父对象的变量，。所以父对象的所有变量对子对象都是可见的，反之子对象的所有变量对于父对象都是不可见的。这就是JavaScript语言特有的『链式作用域』结构。</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fucntion f1()&#123;</span><br><span class="line">  var n =999;</span><br><span class="line">  function f2()&#123;</span><br><span class="line">    alert (n)</span><br><span class="line">  &#125;</span><br><span class="line">  return f2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result =f1();</span><br><span class="line">result();//999</span><br><span class="line"></span><br><span class="line">* 在上面的代码中函数f2就是闭包，一般闭包最常用的就是在一个函数中生成另一个函数的，返回一个函数，这样在外部就可以访问到内部的变量了。</span><br></pre></td></tr></table></figure>
+<h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2><ul>
+<li><p>闭包的第一个作用是可以在函数作用域外部读取到函数内部的变量；二就是可以让这些变量可以始终的保存在内存中。还可以封装私有属性和私有方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">　　function f1()&#123;</span><br><span class="line">　　　　var n=999;</span><br><span class="line">　　　　nAdd=function()&#123;n+=1&#125;</span><br><span class="line">　　　　function f2()&#123;</span><br><span class="line">　　　　　　alert(n);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　return f2;</span><br><span class="line">　　&#125;</span><br><span class="line">　　var result=f1();</span><br><span class="line">　　result(); // 999</span><br><span class="line">　　nAdd();</span><br><span class="line">　　result(); // 1000</span><br><span class="line">* 在这段代码中result一共调用了两次的了，第一次的值是999，第二次的值是1000，这证明的了函数f1中的局部变量n一直保存在变量中，并没有在f1调用后被自动清除。在上面的代码中nAdd=fucntion()&#123;n+=1;&#125;这一行并没有使用var声明，所以是一个全局变量，不是一个局部变量，而且也是一个闭包，可以在函数外部对函数内部的变量进行操作。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用闭包注意的问题</p>
+<p>1.闭包会使函数中的变量保存在内存之中，对内存的消耗很大，不能滥用闭包，否则会造成网页的性能的问题。</p>
+<p>2.闭包会在父函数的外部改变函数内部变量的值。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/01/闭包/" data-id="cjt2j26h4000lmwolnzm2cx8v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/03/DOM事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DOM事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/30/HTTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTTP</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/15/工作总结/">工作总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/14/网易云音乐思路/">网易云音乐思路</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/05/this/">this</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/25/作用域/">作用域</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张科家<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

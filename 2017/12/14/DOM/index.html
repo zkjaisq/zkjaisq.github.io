@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM | charity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DOM DOM是JavaScript操作网页的接口，全称为Document Object Model，也就是文档对象模型，它的作用试讲网页转为一个JavaScript对象，从而可以用脚本进行各种操作。浏览器会根据DOM模型，将结构化文档解析成一系列的节点，再由这些节点组成一个树状结构，也就是DOM tree。  节点的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="http://yoursite.com/2017/12/14/DOM/index.html">
+<meta property="og:site_name" content="charity">
+<meta property="og:description" content="DOM DOM是JavaScript操作网页的接口，全称为Document Object Model，也就是文档对象模型，它的作用试讲网页转为一个JavaScript对象，从而可以用脚本进行各种操作。浏览器会根据DOM模型，将结构化文档解析成一系列的节点，再由这些节点组成一个树状结构，也就是DOM tree。  节点的类型有七种类型： 1.Document类型整个文档树的顶层节点 2.Docume">
+<meta property="og:updated_time" content="2017-12-15T01:56:16.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM">
+<meta name="twitter:description" content="DOM DOM是JavaScript操作网页的接口，全称为Document Object Model，也就是文档对象模型，它的作用试讲网页转为一个JavaScript对象，从而可以用脚本进行各种操作。浏览器会根据DOM模型，将结构化文档解析成一系列的节点，再由这些节点组成一个树状结构，也就是DOM tree。  节点的类型有七种类型： 1.Document类型整个文档树的顶层节点 2.Docume">
+  
+    <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">charity</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-DOM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/14/DOM/" class="article-date">
+  <time datetime="2017-12-14T11:40:50.000Z" itemprop="datePublished">2017-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li><p>DOM是JavaScript操作网页的接口，全称为Document Object Model，也就是文档对象模型，它的作用试讲网页转为一个JavaScript对象，从而可以用脚本进行各种操作。浏览器会根据DOM模型，将结构化文档解析成一系列的节点，再由这些节点组成一个树状结构，也就是DOM tree。</p>
+</li>
+<li><p>节点的类型有七种类型：</p>
+<p>1.Document类型整个文档树的顶层节点</p>
+<p>2.DocumentType:doctype标签，比如&lt;!DOCTYPE html&gt;</p>
+<p>3.Element:网页的各种HTML标签</p>
+<p>4.Attribute：网页元素的属性（如class:’right’）</p>
+<p>5.Text:标签之间或标签包含的文本</p>
+<p>6.Comment:注释</p>
+<p>7.DocumentFragment:文档的片段</p>
+</li>
+<li><p>DOM的最小组成单位是节点node。最顶层的节点就是document节点，它代表了整个文档。文档里面的最高一层的HTML标签，一班是<code>&lt;html&gt;</code>，它构成了树结构的根节点（root node），其他HTML标签节点都是它的下级。</p>
+</li>
+<li><p>页面中的节点通过构造函数构造出对应的对象，这就是DOM的主要功能。</p>
+</li>
+<li><p>Node的属性</p>
+<p>1.childNodes表示所有的子节点</p>
+<p>2.nodeName返回的都是字符串，除了svg以外，所有的都是大写的返回值。</p>
+<p>3.获取html要使用<code>document.document.element</code>,</p>
+<p>4.nodeType，值是1的时候表示的是element，值是3的时候表示的是Text，值是9的时候表示document。</p>
+<p>5.innertext只会获取文本，而textContent除了获取文本以外还会获取script和style元素。</p>
+<p>6.cloneNode表示克隆节点，后面接受一个参数表示是否接受深拷贝。true表示接受，false表示不接受深拷贝。</p>
+<p>7.isEqualNode表示相等的两个节点，isSameNode表示相同的两个节点，可以理解位就是同一个节点才会是相同的。</p>
+<p>8.removeChild表示移除子节点，但是还是会在内存中，可以被调用的。</p>
+</li>
+<li><p>Docucment接口：</p>
+<p>1.body获取body元素</p>
+<p>2.characterSet获取字符编码</p>
+<p>3.documentElement获取的就是html元素，是文档的根元素。</p>
+<p>4.document.domain获取你的域名</p>
+<p>5.document.links获取页面中所有的a标签。</p>
+<p>6.document.plugins获取是否装了插件</p>
+<p>7.referrer引荐人</p>
+<p>8.visibilityStates表示页面是否可以显示</p>
+<p>9.document.execCommand（）表示执行命令</p>
+<p>10.document.qurySelector()返回一个元素，但是document.querySelectorAll()返回的是一个伪数组，不管里面的有几个都是一个伪数组，原型指向的是NodeLise.prototype</p>
+</li>
+<li><p>element接口</p>
+<p>1.attribute返回一个和该元素相关的所有属性的集合</p>
+<p>2.accessKey设置一个按键，用户桶过敲击这个按键吧焦点跳转到这个元素上。</p>
+<p>3.clientLeft表示一个元素左边框的宽度</p>
+<p>4.clientTop获取一个元素顶部的距离</p>
+<p>5.innerHTML和textContent的区别是textContent只获取到文本，innerHTML是可以获取到里面的标签。</p>
+<p>6.</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjt2j26gr0002mwolyfkgced3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/12/18/jQuery/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          jQuery
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/11/Array/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Array</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/15/工作总结/">工作总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/14/网易云音乐思路/">网易云音乐思路</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/05/this/">this</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/25/作用域/">作用域</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张科家<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

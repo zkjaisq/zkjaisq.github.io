@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript数据类型 | charity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数据类型">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/JavaScript数据类型/index.html">
+<meta property="og:site_name" content="charity">
+<meta property="og:description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。 5.null：表示无值，即此处的值就是「无」的状态">
+<meta property="og:updated_time" content="2017-11-20T11:51:28.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript数据类型">
+<meta name="twitter:description" content="数据类型JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。1.数值（number）：整数和小数 2.字符串（string）：字符组成的文本。 3.布尔值（boolean）：true（真）和false（假）两个特定的值。 4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。 5.null：表示无值，即此处的值就是「无」的状态">
+  
+    <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">charity</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/20/JavaScript数据类型/" class="article-date">
+  <time datetime="2017-11-20T08:57:39.000Z" itemprop="datePublished">2017-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript数据类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。"><a href="#JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。" class="headerlink" title="JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。"></a>JavaScript语言的每一个值都是一种数据类型，JavaScript的数据类型，一共有六种。</h2><pre><code>1.数值（number）：整数和小数
+2.字符串（string）：字符组成的文本。
+3.布尔值（boolean）：true（真）和false（假）两个特定的值。
+4.undefined：表示『未定义』，由于目前没有定义，所以此处暂时没有任何值。
+5.null：表示无值，即此处的值就是「无」的状态。
+6.对象（object）：各种值组成的集合。
+</code></pre><h2 id="确定一个值到底是什么类型的三种方法："><a href="#确定一个值到底是什么类型的三种方法：" class="headerlink" title="确定一个值到底是什么类型的三种方法："></a>确定一个值到底是什么类型的三种方法：</h2><pre><code>1.typeof运算符  
+2.instanceof运算符
+3.Object.prototype.toString方法
+</code></pre><h2 id="typeof运算返回的类型"><a href="#typeof运算返回的类型" class="headerlink" title="typeof运算返回的类型"></a>typeof运算返回的类型</h2><ul>
+<li>数值、字符串、布尔值分别返回number、string、boolean，函数返回function，undefined返回undefined，其他情况全部返回object。<ul>
+<li>null表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这是就可以传入null。比如，某个函数接受引擎抛出的错误作为参数，如果运行中未出错，那么这个参数就会传入null，表示未发生错误。</li>
+<li>undefined表示『未定义』。<ul>
+<li>会返回布尔值的运算：<br>  1.两元逻辑运算符：&amp;&amp;（And），||(Or)<br>  2.前置逻辑运算符：!(Not)<br>  3.相等运算符：===，！==，==，！=<br>  4.比较运算符：&gt;,&gt;=,&lt;,&lt;=</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果JavaScript预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。undefined，null，false，0，NaN，’’或””（空字符串）这六个被转为false，其他值都视为true。空数组和空对象对应的布尔值都是true。</li>
+</ul>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><ul>
+<li>JS中所有的数字都是64位浮点数形式储存的，某些运算只有证书才能完成，此时JS会自动吧64位浮点数，转为32位整数，再进行运算。</li>
+<li>JavaScript浮点数64个二进制位，从左边开始第一位，符号位，0表示正数，1表示负数。第2位到第12位是指数部分。第13位到第64位小数部分。</li>
+<li>JavaScript对整数提供四种进制的表示方法：十进制、十六进制、八进制、二进制<pre><code>1.十进制：没有前导0的数值
+2.八进制：有前缀0o或0O的数值，或者有前导0，且只用到0-7的八个阿拉伯数字的数值。
+3.十六进制：有前缀0x或0X的数值。
+4.二进制：有前缀0b或0B的数值。
+</code></pre></li>
+<li>默认情况下JavaScript内部会自动将八进制，十六进制，二进制转为十进制。</li>
+<li>如果八进制、十六进制、二进制的数值里面，出现不属于该进制的数字就会报错。</li>
+<li>NaN不是一种独立的数据类型，而是一种特殊的数值，他的数据类型依然属于Number。并且NaN不等于任何值，包括它本身。NaN与任何数包括它自己的运算得到的都是NaN.</li>
+<li>isNaN方法可以用来判断一个值是否为NaN，注意的是isNaN只对数值有效，如果传入其他的值，会被先转成数值。也就是说，isNaN位true的值可能不是NaN，而是一个字符串。对于空数组和只有一个数值的数组，isNaN返回false。</li>
+<li>Infinity表示『wuqiong』，用来表示两种场景，一种是一个正值太大，或一个负的数值太小，无法表示，另一种是非0数值除以0，得到Infinity。<h2 id="parseInt"><a href="#parseInt" class="headerlink" title="parseInt"></a>parseInt</h2></li>
+<li>parseInt方法用于将字符串转为整数，如果字符串头部有空格，空格会被自动去除。如果parseInt的参数不是字符串，则会先转为字符串再转换。字符串转为整数的时候，是一个个字符依次转换，如果遇到不能转为数字的字符，就不再进行下去，返回已经转好的部分。如果一个字符串的第一个字符不能转化为数字，返回NaN。</li>
+<li>如果字符串以0x或0X开头，parseInt会将其按照十六进制数解析，如果字符串以0开头，将其按照10进制解析。parseInt方法还可以接受第二个参数，表示被解析的值的进制parseInt（’10000’,16）.如果第二个参数不是数值，会被自动转为一个整数，这个整数只有在2到36之间才能得到有意义的结果，超出这个范围，则返回NaN。第二个参数是0，undefined和null，则直接hulve。</li>
+<li>parseFloat方法用于将一个字符串转为浮点数，如果字符串符合科学计数法，则会进行相应的转换，如果字符串包含不能转为浮点数的字符，则不再进行往后转换，返回已经转好的部分。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/20/JavaScript数据类型/" data-id="cjt2j26gx000bmwolibvouehu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/25/HTML/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/11/17/JS/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/15/工作总结/">工作总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/14/网易云音乐思路/">网易云音乐思路</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/05/this/">this</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/25/作用域/">作用域</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 张科家<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
