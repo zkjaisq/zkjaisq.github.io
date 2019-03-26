@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,60 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/01/闭包/" class="article-date">
+  <time datetime="2018-01-01T01:40:45.000Z" itemprop="datePublished">2018-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/01/闭包/">闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>什么是闭包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">闭包就是一个函数可以访问到它外部的变量，那么这个函数和这个变量就组成了一个闭包。</span><br><span class="line">function f1()&#123;</span><br><span class="line">  var n =999</span><br><span class="line">  fucntion f2()&#123;</span><br><span class="line">    alert(n)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">上面的函数f2和n组成了一个闭包。</span><br><span class="line">* 也可以说闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常用的方式就是在一个函数的内部创建另一个函数。</span><br><span class="line">function createComparise(propertyName)&#123;</span><br><span class="line">  return function(object1,object2)&#123;</span><br><span class="line">    var value1 = object1[propertuName];</span><br><span class="line">    var value2 = object2[propertyName];//这两个函数访问了函数外的变量proprtyName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在JavaScript中子对象会一级一级的向上寻找所有的父对象的变量，。所以父对象的所有变量对子对象都是可见的，反之子对象的所有变量对于父对象都是不可见的。这就是JavaScript语言特有的『链式作用域』结构。</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fucntion f1()&#123;</span><br><span class="line">  var n =999;</span><br><span class="line">  function f2()&#123;</span><br><span class="line">    alert (n)</span><br><span class="line">  &#125;</span><br><span class="line">  return f2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var result =f1();</span><br><span class="line">result();//999</span><br><span class="line"></span><br><span class="line">* 在上面的代码中函数f2就是闭包，一般闭包最常用的就是在一个函数中生成另一个函数的，返回一个函数，这样在外部就可以访问到内部的变量了。</span><br></pre></td></tr></table></figure>
+<h2 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h2><ul>
+<li><p>闭包的第一个作用是可以在函数作用域外部读取到函数内部的变量；二就是可以让这些变量可以始终的保存在内存中。还可以封装私有属性和私有方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">　　function f1()&#123;</span><br><span class="line">　　　　var n=999;</span><br><span class="line">　　　　nAdd=function()&#123;n+=1&#125;</span><br><span class="line">　　　　function f2()&#123;</span><br><span class="line">　　　　　　alert(n);</span><br><span class="line">　　　　&#125;</span><br><span class="line">　　　　return f2;</span><br><span class="line">　　&#125;</span><br><span class="line">　　var result=f1();</span><br><span class="line">　　result(); // 999</span><br><span class="line">　　nAdd();</span><br><span class="line">　　result(); // 1000</span><br><span class="line">* 在这段代码中result一共调用了两次的了，第一次的值是999，第二次的值是1000，这证明的了函数f1中的局部变量n一直保存在变量中，并没有在f1调用后被自动清除。在上面的代码中nAdd=fucntion()&#123;n+=1;&#125;这一行并没有使用var声明，所以是一个全局变量，不是一个局部变量，而且也是一个闭包，可以在函数外部对函数内部的变量进行操作。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用闭包注意的问题</p>
+<p>1.闭包会使函数中的变量保存在内存之中，对内存的消耗很大，不能滥用闭包，否则会造成网页的性能的问题。</p>
+<p>2.闭包会在父函数的外部改变函数内部变量的值。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/01/闭包/" data-id="cjtpj1468000mz0ol51b57012" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-HTTP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -161,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/30/HTTP/" data-id="cjto4ncm80002t4oli7j1nww2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/30/HTTP/" data-id="cjtpj145p0002z0olri7be11m" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -220,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjto4ncmh000dt4olk9fszvty" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/22/jQuery-1/" data-id="cjtpj145x000cz0olt5uo03n8" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -279,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjto4ncmj000ft4ol6pbv3joy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/18/jQuery/" data-id="cjtpj1460000ez0olr4wvkky2" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -362,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjto4ncm60001t4olvanzv8qw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/14/DOM/" data-id="cjtpj145f0000z0olrjytp5kg" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -427,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjto4ncly0000t4olwf3q5ec5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/11/Array/" data-id="cjtpj145r0004z0olaj2ml085" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -517,7 +571,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjto4ncmo000jt4ol20ywsyz1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/10/对象/" data-id="cjtpj1464000jz0ol3bwv4s61" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -567,7 +621,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjto4ncmm000ht4olyrh4fbp0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/09/函数/" data-id="cjtpj1463000hz0olc095m0gv" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -662,7 +716,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjto4ncmf000at4ol31frxty4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/01/JS基本语法/" data-id="cjtpj145u0009z0oli811rfnr" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -713,99 +767,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjto4ncme0009t4olj3w1iyog" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JS中的数据" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/26/JS中的数据/" class="article-date">
-  <time datetime="2017-11-26T12:54:30.000Z" itemprop="datePublished">2017-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/26/JS中的数据/">JS中的数据</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JS的发展历史"><a href="#JS的发展历史" class="headerlink" title="JS的发展历史"></a>JS的发展历史</h1><p>1.1991年，李爵士发明了www<br>2.1992年，李爵士的同事发明了CSS。<br>3.1994年，成立了W3C（万维网联盟）<br>4.19995年，网景公司开发了一款浏览器为Netscape-Navgator，这款浏览器的特点是支持脚本，也就是最初的JavaScript。</p>
-<ul>
-<li>JavaScript是由Brendan Eich（JS之父）在1995年开发出来的，当时设计这门脚本语言只花了十天的时间。JavaScript最初的名字是Mocha，后来改名为LiveScript，最后才改名为JavaScript。</li>
-<li>在JavaScript被发明后，欧洲计算机制造协会发布了Unicode和UTF-8，后来网景开源了自身的浏览器，也就是现在的firfox，并像ECMA申报JavaScript标准，就是现在的ECMAScript。</li>
-<li>在2004年的时候Gmail开发了一款网页上的程序，这个时候JavaScript才被正式的被称为一门编程语言，以前都是作为脚本的。</li>
-<li>但是在JS被发明出来的时候也就是ECMAScript3的时候有很明显的缺点，没有模块化，内置代码少，经过这么长时间的恒更行，现在已经到了ECMAScript7了。</li>
-</ul>
-<h1 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h1><ul>
-<li>在JavaScript中确定一个值是哪一种类型的时候，可以用三种方式来确定的。typeof运算符、instanceof运算符和Object.prototype.toString这三种方法。</li>
-<li>typeof null //object ;typeof function()  //fucntion<h2 id="number-数字"><a href="#number-数字" class="headerlink" title="number(数字)"></a>number(数字)</h2></li>
-<li>number中表示数字的方式有四种，十进制，二进制（0b开头的数字），八进制（0开头的数字，并且只有1-7的数），六进制（0x开头的表示方式）。</li>
-<li>NaN也是一种特殊的数字，类型还是number， </li>
-</ul>
-<h2 id="string（字符串）"><a href="#string（字符串）" class="headerlink" title="string（字符串）"></a>string（字符串）</h2><ul>
-<li>‘你好’或者”你好”都是字符串，用单引号或者双引号将字符引起来的就是字符串。</li>
-<li>’‘或者“”这种叫做空字符串，长度为0.</li>
-<li>’ ‘或者“ ”这种引号中间有空格的叫做空格字符串，长度为1.</li>
-<li>转义符为（\）\n表示回车，\t表示制表符（Tab），’\‘表示\（反斜杠），</li>
-<li>多行字符串的书写最好中间使用+书写：<br>  var  s = ‘12345’+                                                                                          ‘5689’<br>var s = ‘123456<br>67890’这中写法中间加回车一共11个字符 长度length为11.<ul>
-<li>JavaScript使用Unicode字符集，也就是说，在JavaScript引擎内部，所有的字符都用Unicode表示。并且还允许直接在程序中使用Unicode编号表示字符，就是将字符写成\uxxxx的形式，其中xxxx表示该字符的Unicode编码。</li>
-<li>Base64是一种编码方式，可以将任意字符转成可打印的字符，btoa（）：字符串或者二进制转为Base64编码。atob（）：Base64编码转为原来的编码。如果要将ASCII码字符转为Base64编码，必须中间插入一个转码环节，再使用这两个方法。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Boolean（布尔值）"><a href="#Boolean（布尔值）" class="headerlink" title="Boolean（布尔值）"></a>Boolean（布尔值）</h2><ul>
-<li>布尔是一个数学家，发明了逻辑学，布尔值只有两个值true和false。</li>
-<li>&amp;&amp;(and)运算符，a&amp;&amp;b只有当a和b同时为真的时候才为真，</li>
-<li>||（or）运算符，a||b，当a和b两个只要有一个为真的时候都为真，只有两个都是假的时候才为假。</li>
-</ul>
-<h2 id="null（无）和undefined（无）"><a href="#null（无）和undefined（无）" class="headerlink" title="null（无）和undefined（无）"></a>null（无）和undefined（无）</h2><ul>
-<li>null是一个数据类型，只有一个值null。</li>
-<li>undefined是一个数据类型，只有一个值undefined。</li>
-<li>null和undefined都是表示什么都没有，但是他们也有区别之处：1.当一个变量没有赋值的时候他的值就是undefined。（语法）2.当一个对象object不想赋值的时候，推荐的值就是null，但是也可以为undefined，通常都是null，这是惯例。</li>
-</ul>
-<h2 id="object（对象）"><a href="#object（对象）" class="headerlink" title="object（对象）"></a>object（对象）</h2><ul>
-<li>对象也是哈希，是由简单类型number、string、null、undefined、symbol、boolean这六中简单的数据类型组成的复杂类型。由｛开始而且由｝结束。</li>
-<li>函数function(){}和数组[],都是属于对象。</li>
-<li>对象的生成有三种方式，var o1 = {}直接用｛｝生成，var o1 = nwe Object()用new命令生成一个Object对象，或者使用Object.create方法生成　var o1 = Object,create(Object.prototype)。</li>
-<li>对象所有的键名都是字符串，加不加引号都可以，如果是数字则会自动被转为字符串，如果键名不符合标识符名的条件必须加引号的。</li>
-<li>对象采用大括号｛｝表示，如果行首是一个大括号，则会一律解释为语句，如果要解释为表达式（对象）的话，必须要加（｛｝）圆括号。</li>
-<li>属性的读取，var 0 = {p: ‘hello’}  o[‘p’]来读取ｐ对应的值。如果对象中的key符合标识符的规范，则可以改写成o.p这种点的运算符。</li>
-<li>对象中属性的删除delete o[‘p’]那么在ｏ中，o.p为undefined,’p’ in o 为false。如果o[‘p’] = undefined;那么o.p为undefined,p in o则是true.这两种删除是有区别的。</li>
-<li>查看一个对象的所有的属性，使用Object.keys方法</li>
-<li>for……in循环用来遍历一个队对象的属性和值，它遍历的是对象所有可遍历的属性，会跳过不可遍历的属性，不仅遍历自身的属性，还遍历继承的属性。</li>
-</ul>
-<h2 id="数据类型的转换"><a href="#数据类型的转换" class="headerlink" title="数据类型的转换"></a>数据类型的转换</h2><ul>
-<li>使用tostring转换成字符串时候，null和undefined不能够转换，number和boolean可以转换成字符串，『要注意的是如果数字1.toString()会报错的原因是因为JS引擎会将1.看成一个数字，后面的toString（）就是错误的，要想正确的书写需要(1).toString()或者1..toString()』，但是object只能转换成[object,Object]；使用＋’’的方式都能够转换成字符串，但是object还是[object,Object].使用String()全局函数和使用＋’‘的作用一样的。</li>
-<li>将别的类型的数据转换成boolean，可以使用全局函数String(),也可以使用!!两次取反来进行转换，这种简单方法是老鸟的操作。其中０、NaN、’’、null、undefined这五个值的的boolean都是false。object所有boolean都是true.</li>
-<li>将字符串’1’转换成number1的方法：Number(‘1’)全局函数、parseInt(‘1’,10)这种转换方式的话不能够转换小数或者说浮点数，如果是小数的话就只会转换小数前的整数值，如果转换的字符串的值大于后面的进制数，就不会转换，返回转换完的值、parseFloat(‘1.23’)既能够转化为整数，又能够转换位浮点数、－０（减零），＋（取正）。</li>
-</ul>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><ul>
-<li>如果一个对象没有被引用，它就是一个垃圾，没有任何价值，会被回收，将占用的内存返还给浏览器。</li>
-</ul>
-<h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><ul>
-<li>深拷贝就是连个变量的改变其中一个不影响另外一个的值，之间互不影响买就是深拷贝，基本的数据类型都是深拷贝，浅拷贝就是改变一个的值会改变另一个的值。以后说深拷贝都是在object中说的。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/JS中的数据/" data-id="cjto4ncme0008t4ol61mh28hx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjtpj1461000fz0ol7q3aqkax" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -836,7 +798,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
     </div>
   </div>
 
@@ -844,9 +806,13 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/25/双向绑定与单项绑定/">双向绑定与单项绑定</a>
+          </li>
         
           <li>
             <a href="/2018/06/15/工作总结/">工作总结</a>
@@ -864,10 +830,6 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
             <a href="/2018/02/03/HTTP高级知识/">HTTP高级知识</a>
           </li>
         
-          <li>
-            <a href="/2018/01/25/作用域/">作用域</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -881,7 +843,7 @@ arguments是一个伪数组，```__proto__```没有指向```Array.prototype```.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2019 张科家<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

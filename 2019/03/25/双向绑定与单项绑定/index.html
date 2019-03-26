@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS中的对象 | charity</title>
+  <title>双向绑定与单项绑定 | charity</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全局对象 全局对象，标准上交做global，浏览器上交做window，window属性分为两种 一种是ECMAScript规定的:  1.parseInt  2.parseFloat  3.Number()  4.String()  5.Boolean()  6.Object() 一种是浏览器自己私有的:  1.ale">
+  <meta name="description" content="MVC的思想 代码总是可以分为三类 1、操作远程数据的部分。 2、专门呈现页面元素的代码。 3、其他控制逻辑的代码。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中的对象">
-<meta property="og:url" content="http://yoursite.com/2017/11/27/JS中的对象/index.html">
+<meta property="og:title" content="双向绑定与单项绑定">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/双向绑定与单项绑定/index.html">
 <meta property="og:site_name" content="charity">
-<meta property="og:description" content="全局对象 全局对象，标准上交做global，浏览器上交做window，window属性分为两种 一种是ECMAScript规定的:  1.parseInt  2.parseFloat  3.Number()  4.String()  5.Boolean()  6.Object() 一种是浏览器自己私有的:  1.alert()浏览器弹窗  2.promt()用户填写  3.confirm()确认">
-<meta property="og:image" content="https://video.jirengu.com/FpdIr-6MZgJd_S0HZCmhGhmmCtwN">
-<meta property="og:updated_time" content="2017-11-27T12:55:09.316Z">
+<meta property="og:description" content="MVC的思想 代码总是可以分为三类 1、操作远程数据的部分。 2、专门呈现页面元素的代码。 3、其他控制逻辑的代码。">
+<meta property="og:updated_time" content="2019-03-25T09:25:53.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中的对象">
-<meta name="twitter:description" content="全局对象 全局对象，标准上交做global，浏览器上交做window，window属性分为两种 一种是ECMAScript规定的:  1.parseInt  2.parseFloat  3.Number()  4.String()  5.Boolean()  6.Object() 一种是浏览器自己私有的:  1.alert()浏览器弹窗  2.promt()用户填写  3.confirm()确认">
-<meta name="twitter:image" content="https://video.jirengu.com/FpdIr-6MZgJd_S0HZCmhGhmmCtwN">
+<meta name="twitter:title" content="双向绑定与单项绑定">
+<meta name="twitter:description" content="MVC的思想 代码总是可以分为三类 1、操作远程数据的部分。 2、专门呈现页面元素的代码。 3、其他控制逻辑的代码。">
   
     <link rel="alternate" href="/atom.xml" title="charity" type="application/atom+xml">
   
@@ -65,10 +63,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-JS中的对象" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-双向绑定与单项绑定" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/27/JS中的对象/" class="article-date">
-  <time datetime="2017-11-27T03:08:53.000Z" itemprop="datePublished">2017-11-27</time>
+    <a href="/2019/03/25/双向绑定与单项绑定/" class="article-date">
+  <time datetime="2019-03-25T09:07:26.000Z" itemprop="datePublished">2019-03-25</time>
 </a>
     
   </div>
@@ -79,7 +77,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JS中的对象
+      双向绑定与单项绑定
     </h1>
   
 
@@ -87,26 +85,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><ul>
-<li>全局对象，标准上交做global，浏览器上交做window，window属性分为两种<ul>
-<li>一种是ECMAScript规定的:<br>  1.parseInt<br>  2.parseFloat<br>  3.Number()<br>  4.String()<br>  5.Boolean()<br>  6.Object()</li>
-<li>一种是浏览器自己私有的:<br>  1.alert()浏览器弹窗<br>  2.promt()用户填写<br>  3.confirm()确认<br>  4.console开发者<br>  5.document()文档 DOM<br>  6.history   浏览器BOM</li>
-</ul>
+        <h2 id="MVC的思想"><a href="#MVC的思想" class="headerlink" title="MVC的思想"></a>MVC的思想</h2><ul>
+<li><p>代码总是可以分为三类</p>
+<p>1、操作远程数据的部分。</p>
+<p>2、专门呈现页面元素的代码。</p>
+<p>3、其他控制逻辑的代码。</p>
 </li>
-</ul>
-<h2 id="简单类型和全局函数的区别"><a href="#简单类型和全局函数的区别" class="headerlink" title="简单类型和全局函数的区别"></a>简单类型和全局函数的区别</h2><ul>
-<li>使用全局函数可以构建一个hash，可以使用API，而简单类型使用API则需要在使用的时候在内存中创建一个临时的对象，这个临时的对象在使用完以后就会被删除掉。</li>
-</ul>
-<h2 id="公用的属性-原型"><a href="#公用的属性-原型" class="headerlink" title="公用的属性(原型)"></a>公用的属性(原型)</h2><ul>
-<li>在JS中一些公用的属性都被放在一个对象中，而需要使用的时候用<strong>proto</strong>来引用。</li>
-<li>protype和<strong>proto</strong>的区别在于prototype你不写代码的时候就有的了，是对API的应用；而<strong>proto</strong>是你写代码的时候对API引用的时候所使用的。一个<strong>proto</strong>对应一个prototype.</li>
-<li>var 对象  = new 函数 ；对象<strong>proto</strong> === 函数 prototype；<br>Format: <img src="https://video.jirengu.com/FpdIr-6MZgJd_S0HZCmhGhmmCtwN" alt="Alt Text"></li>
+<li></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/27/JS中的对象/" data-id="cjtpj1461000fz0ol7q3aqkax" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2019/03/25/双向绑定与单项绑定/" data-id="cjtpj1466000lz0olsxq7imii" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -115,19 +106,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/12/01/JS基本语法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          JS基本语法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/26/JS中的数据/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/06/15/工作总结/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">JS中的数据</div>
+      <div class="article-nav-title">工作总结</div>
     </a>
   
 </nav>
